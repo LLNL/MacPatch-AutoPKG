@@ -10,18 +10,6 @@
 
     <key>Input</key>
     <dict>
-        <key>auth_user</key>
-        <string>override</string>
-
-        <key>auth_pass</key>
-        <string>override</string>
-
-        <key>mp_server_url</key>
-        <string>override</string>
-
-        <key>verify_ssl</key>
-        <false/>
-
         <key>patch_name</key>
         <string>Google Chrome</string>
 

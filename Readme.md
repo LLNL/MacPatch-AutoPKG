@@ -9,7 +9,14 @@ The MacPatchImporterProcessor recipe is an AutoPkg ["shared recipe processor"](h
 #### Setup
 It's best to use [overrides](https://github.com/autopkg/autopkg/wiki/Recipe-Overrides) to set the recipe values for your specific environment. At the very least you will need to override the MacPatch server address and username/password for the webservice. But feel free to override any of the other recipe inputs as needed.
 
-#### Pre-install, post-install, and criteria scripts
+###### Add repo
+```shell
+autopkg repo-add https://github.com/SMSG-MAC-DEV/MacPatch-AutoPKG.git
+```
+
+
+
+###### Pre-install, post-install, and criteria scripts
 Scripts for criteria and pre/post-install are not included directly in the recipe xml. Instead they are placed into a sub-folder of the recipe called scripts, and the corresponding keys in the recipe are set to true.
 
 Key | Script location | Comments
@@ -18,7 +25,7 @@ patch_criteria_scripts | ./scripts/*.criteria-script | Any number of files with 
 pkg_preinstall | ./scripts/pretinstall.script 
 pkg_postinstall | ./scripts/postinstall.script
 
-#### Example:
+#### Example recipe
 Below is a sample Firefox recipe with the needed inputs to upload to a MacPatch server.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
