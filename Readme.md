@@ -4,7 +4,7 @@ MacPatchImporter for AutoPkg
 This processor adds the ability to upload AutoPkg packages to a MacPatch server.
 
 #### MacPatchImporterProcessor
-The MacPatchImporterProcessor recipe is an AutoPkg ["shared recipe processor"](https://github.com/autopkg/autopkg/wiki/Processor-Locations#shared-recipe-processors). It's a "stub" recipe that makes the MacPatchImporter processor available to your other recipes. The other other ".macpatch" recipes in this repo use that stub to access the "MacPatchImporterProcessor.py" processor.
+The MacPatchImporterProcessor recipe is an AutoPkg ["shared recipe processor"](https://github.com/autopkg/autopkg/wiki/Processor-Locations#shared-recipe-processors). It's a "stub" recipe that makes the MacPatchImporter processor available to your other recipes. The other ".macpatch" recipes in this repo use that stub to access the "MacPatchImporterProcessor.py" processor.
 
 #### Setup
 It's best to use [overrides](https://github.com/autopkg/autopkg/wiki/Recipe-Overrides) to set the recipe values for your specific environment. At the very least you will need to override the MacPatch server address and username/password for the webservice. But feel free to override any of the other recipe inputs as needed.
