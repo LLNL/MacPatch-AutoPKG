@@ -1,0 +1,112 @@
+MacPatchImporter for AutoPkg
+=================
+
+This processor adds the ability to upload AutoPkg packages to a MacPatch server.
+
+#### MacPatchImporterProcessor
+The MacPatchImporterProcessor recipe is an AutoPkg ["shared recipe processor"](https://github.com/autopkg/autopkg/wiki/Processor-Locations#shared-recipe-processors). It's a "stub" recipe that makes the MacPatchImporter processor available to your other recipes. The other other ".macpatch" recipes in this repo use that stub to access the "MacPatchImporterProcessor.py" processor.
+
+#### Setup
+It's best to use [overrides](https://github.com/autopkg/autopkg/wiki/Recipe-Overrides) to set the recipe values for your specific environment. At the very least you will need to override the MacPatch server address and username/password for the webservice. But feel free to override any of the other recipe inputs as needed.
+
+#### Pre-install, post-install, and criteria scripts
+Scripts for criteria and pre/post-install are not included directly in the recipe xml. Instead they are placed into a sub-folder of the recipe called scripts, and the corresponding keys in the recipe are set to true.
+
+Key | Script location | Comments
+----|------|------
+patch_criteria_scripts | ./scripts/*.criteria-script | Any number of files with ".criteria-script" file extension.
+pkg_preinstall | ./scripts/pretinstall.script 
+pkg_postinstall | ./scripts/postinstall.script
+
+#### Example:
+Below is a sample Firefox recipe with the needed inputs to upload to a MacPatch server.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads Firefox into MacPatch.</string>
+
+    <key>Identifier</key>
+    <string>com.github.smsg-mac-dev.macpatch.firefox</string>
+
+    <key>Input</key>
+    <dict>
+        <key>auth_user</key>
+        <string>autopkg</string>
+
+        <key>auth_pass</key>
+        <string>password</string>
+
+        <key>mp_server_url</key>
+        <string>https://macpatch.company.com</string>
+
+        <key>verify_ssl</key>
+        <true/>
+
+        <key>patch_name</key>
+        <string>Firefox</string>
+
+        <key>description</key>
+        <string>Firefox browser.</string>
+
+        <key>description_url</key>
+        <string>http://www.mozilla.org/en-US/firefox/</string>
+
+        <key>patch_vendor</key>
+        <string>Mozilla</string>
+
+        <key>patch_severity</key>
+        <string>High</string>
+
+        <key>OSType</key>
+        <string>Mac OS X, Mac OS X Server</string>
+
+        <key>OSVersion</key>
+        <string>*</string>
+
+        <key>patch_criteria</key>
+        <array>
+            <string>File@Exists@/Applications/Firefox.app@True</string>
+            <string>File@VERSION@/Applications/Firefox.app@#version#;LT</string>
+        </array>
+
+        <key>patch_criteria_scripts</key>
+        <false/>
+
+        <key>pkg_preinstall</key>
+        <true/>
+
+        <key>pkg_postinstall</key>
+        <false/>
+
+        <key>pkg_env_var</key>
+        <string></string>
+
+        <key>patch_install_weight</key>
+        <string>30</string>
+
+        <key>patch_reboot</key>
+        <string>No</string>
+    </dict>
+
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+
+    <key>ParentRecipe</key>
+    <string>com.github.autopkg.pkg.Firefox_EN</string>
+
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+            </dict>
+            <key>Processor</key>
+            <string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+        </dict>
+    </array>
+</dict>
+</plist>
+```

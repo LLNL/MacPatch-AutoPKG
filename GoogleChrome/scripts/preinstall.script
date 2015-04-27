@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# PRE Flight Script for Google Chrome
+
+if [ -e "/Applications/Google Chrome.app" ]; then
+	echo "Quitting Google Chrome so it can be updated..."
+	killall "Google Chrome"
+	if [ -e "/Applications/Google Chrome.app" ]; then
+		rm -rf "/Applications/Google Chrome.app"
+	fi
+fi

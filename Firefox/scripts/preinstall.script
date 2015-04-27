@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# PRE Flight Script for Firefox
+# This script will find "Firefox.app" in /Applications and delete it
+
+app="/Applications/Firefox.app"
+
+if [ -d "$app" ]; then
+	echo "Welcome $app, now trying to kill you!"
+	ps -ex | grep "$app" | grep -v grep | awk '{print $1}' | xargs kill -9
+	if [ -e "$app" ]; then
+		echo "Now Deleting $app"
+		rm -rf "$app"
+	fi
+else
+	echo "$app not found."
+	exit
+fi
