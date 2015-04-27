@@ -206,10 +206,11 @@ class MacPatchImporterProcessor(Processor):
         #     print 'No new updates where downloaded, nothing to upload.'.format(self.env['patch_name'])
         #     exit(0)
 
-        mp_server = self.env['mp_server_url']
+        mp_server = self.env['MP_URL']
+        self.env['verify_ssl'] = self.env['MP_SSL']
         user_params = {
-            'authUser': self.env['auth_user'],
-            'authPass': self.env['auth_pass'],
+            'authUser': self.env['MP_USER'],
+            'authPass': self.env['MP_PASSWORD'],
             }
 
         payload = {

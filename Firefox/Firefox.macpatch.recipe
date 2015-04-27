@@ -10,18 +10,6 @@
 
     <key>Input</key>
     <dict>
-        <key>auth_user</key>
-        <string>override_me</string>
-
-        <key>auth_pass</key>
-        <string>override_me</string>
-
-        <key>mp_server_url</key>
-        <string>override_me</string>
-        
-        <key>verify_ssl</key>
-        <false/>
-        
         <key>patch_name</key>
         <string>Firefox</string>
 
