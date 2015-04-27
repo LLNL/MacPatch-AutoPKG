@@ -9,11 +9,14 @@ The MacPatchImporterProcessor recipe is an AutoPkg ["shared recipe processor"](h
 #### Setup
 
 ###### Add repo
+
 ```shell
 autopkg repo-add https://github.com/SMSG-MAC-DEV/MacPatch-AutoPKG.git
+```
 
 ###### Configure MacPatch environment settings
 Some settings can be set for all .macpatch recipes in the AutoPkg preferences.
+
 ```shell
 defaults write com.github.autopkg MP_URL https://macpatch.company.com
 defaults write com.github.autopkg MP_USER autopkg
@@ -27,6 +30,7 @@ It's best to use [overrides](https://github.com/autopkg/autopkg/wiki/Recipe-Over
 ```shell
 autopkg make-override Firefox.macpatch
 ```
+
 Only keep the keys that your alter, remove any unchanged keys from the override file.
 
 ###### Pre-install, post-install, and criteria scripts
@@ -38,10 +42,9 @@ patch_criteria_scripts | ./scripts/*.criteria-script | Any number of files with 
 pkg_preinstall | ./scripts/pretinstall.script 
 pkg_postinstall | ./scripts/postinstall.script
 
-```
-
 #### Example recipe
 Below is a sample Firefox recipe with the needed inputs to upload to a MacPatch server.
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
