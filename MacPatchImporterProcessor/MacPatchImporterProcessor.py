@@ -116,21 +116,21 @@ class MPWebService(object):
 class MacPatchImporterProcessor(Processor):
     """Imports a pkg into MacPatch."""
     input_variables = {
-        "auth_user": {
+        "MP_USER": {
             "required": True,
-            "description": "MacPatch autopkg web service user name.",
+            "description": "MacPatch autopkg web service user name, can be set system wide in the com.github.autopkg plist.",
         },
-        "auth_pass": {
+        "MP_PASSWORD": {
             "required": True,
-            "description": "MacPatch utopkg web service password.",
+            "description": "MacPatch utopkg web service password, can be set system wide in the com.github.autopkg plist.",
         },
-        "mp_server_url": {
+        "MP_URL": {
             "required": True,
-            "description": "MacPatch server url.",
+            "description": "MacPatch server url, can be set system wide in the com.github.autopkg plist.",
         },
-        "verify_ssl": {
+        "MP_SSL": {
             "required": True,
-            "description": "Set to False to ignore ssl errors.",
+            "description": "Set to False to ignore ssl errors, can be set system wide in the com.github.autopkg plist.",
         },
         "patch_name": {
             "required": True,
@@ -207,7 +207,6 @@ class MacPatchImporterProcessor(Processor):
         #     exit(0)
 
         mp_server = self.env['MP_URL']
-        self.env['verify_ssl'] = self.env['MP_SSL']
         user_params = {
             'authUser': self.env['MP_USER'],
             'authPass': self.env['MP_PASSWORD'],
@@ -255,7 +254,7 @@ class MacPatchImporterProcessor(Processor):
                         payload['patch_criteria_enc'].append(c)
 
         try:
-            mp_webservice = MPWebService(mp_server, user_params, verify=self.env['verify_ssl'])
+            mp_webservice = MPWebService(mp_server, user_params, verify=self.env['MP_SSL'])
             mp_webservice.post_data(payload)
             self.env['patch_uploaded'] = mp_webservice.post_pkg(self.env['pkg_path'])
         except Exception, e:
