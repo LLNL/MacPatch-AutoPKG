@@ -7,13 +7,17 @@ This processor adds the ability to upload AutoPkg packages to a MacPatch server.
 The MacPatchImporterProcessor recipe is an AutoPkg ["shared recipe processor"](https://github.com/autopkg/autopkg/wiki/Processor-Locations#shared-recipe-processors). It's a "stub" recipe that makes the MacPatchImporter processor available to your other recipes. The other ".macpatch" recipes in this repo use that stub to access the "MacPatchImporterProcessor.py" processor.
 
 #### Setup
-It's best to use [overrides](https://github.com/autopkg/autopkg/wiki/Recipe-Overrides) to set the recipe values for your specific environment. At the very least you will need to override the MacPatch server address and username/password for the webservice. But feel free to override any of the other recipe inputs as needed.
 
 ###### Add repo
 ```shell
 autopkg repo-add https://github.com/SMSG-MAC-DEV/MacPatch-AutoPKG.git
-```
 
+It's best to use [overrides](https://github.com/autopkg/autopkg/wiki/Recipe-Overrides) to set the recipe inputs for your specific environment. At the very least you will need to override the recipes with your url and username/password for the MacPatch web service. 
+
+###### Create override for a recipe
+```shell
+autopkg make-override Firefox.macpatch
+```
 
 
 ###### Pre-install, post-install, and criteria scripts
@@ -24,6 +28,8 @@ Key | Script location | Comments
 patch_criteria_scripts | ./scripts/*.criteria-script | Any number of files with ".criteria-script" file extension.
 pkg_preinstall | ./scripts/pretinstall.script 
 pkg_postinstall | ./scripts/postinstall.script
+
+```
 
 #### Example recipe
 Below is a sample Firefox recipe with the needed inputs to upload to a MacPatch server.

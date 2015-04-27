@@ -11,19 +11,7 @@ To use this processor, set the 'Processor' key in your recipe to 'gov.llnl.autop
     <string>com.github.smsg-mac-dev.MacPatchImporterProcessor</string>
 
     <key>Input</key>
-    <dict>
-        <key>auth_user</key>
-        <string>override_this</string>
-        
-        <key>auth_pass</key>
-        <string>override_this</string>
-        
-        <key>mp_server_url</key>
-        <string>override_this</string>
-        
-        <key>verify_ssl</key>
-        <false/>
-    </dict>
+    <dict/>
     
     <key>MinimumVersion</key>
     <string>0.4.0</string>
