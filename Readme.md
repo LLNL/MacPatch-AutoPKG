@@ -12,13 +12,22 @@ The MacPatchImporterProcessor recipe is an AutoPkg ["shared recipe processor"](h
 ```shell
 autopkg repo-add https://github.com/SMSG-MAC-DEV/MacPatch-AutoPKG.git
 
-It's best to use [overrides](https://github.com/autopkg/autopkg/wiki/Recipe-Overrides) to set the recipe inputs for your specific environment. At the very least you will need to override the recipes with your url and username/password for the MacPatch web service. 
+###### Configure MacPatch environment settings
+Some settings can be set for all .macpatch recipes in the AutoPkg preferences.
+```shell
+defaults write com.github.autopkg MP_URL https://macpatch.company.com
+defaults write com.github.autopkg MP_USER autopkg
+defaults write com.github.autopkg MP_PASSWORD password
+defaults write com.github.autopkg MP_SSL -bool NO
+```
 
 ###### Create override for a recipe
+It's best to use [overrides](https://github.com/autopkg/autopkg/wiki/Recipe-Overrides) to set the recipe specific inputs for your environment. 
+
 ```shell
 autopkg make-override Firefox.macpatch
 ```
-Only keep the keys that your alter, remove any unchanged keys from the override.
+Only keep the keys that your alter, remove any unchanged keys from the override file.
 
 ###### Pre-install, post-install, and criteria scripts
 Scripts for criteria and pre/post-install are not included directly in the recipe xml. Instead they are placed into a sub-folder of the recipe called scripts, and the corresponding keys in the recipe are set to true.
