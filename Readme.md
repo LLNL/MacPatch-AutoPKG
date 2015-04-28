@@ -39,7 +39,7 @@ Scripts for criteria and pre/post-install are not included directly in the recip
 Key | Script location | Comments
 ----|------|------
 patch_criteria_scripts | ./scripts/*.criteria-script | Any number of files with ".criteria-script" file extension.
-pkg_preinstall | ./scripts/pretinstall.script 
+pkg_preinstall | ./scripts/preinstall.script 
 pkg_postinstall | ./scripts/postinstall.script
 
 #### Example recipe
