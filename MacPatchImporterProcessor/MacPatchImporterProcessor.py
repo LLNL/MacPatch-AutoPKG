@@ -202,9 +202,9 @@ class MacPatchImporterProcessor(Processor):
 
 
     def main(self):
-        # if not self.env['download_changed']:
-        #     print 'No new updates where downloaded, nothing to upload.'.format(self.env['patch_name'])
-        #     exit(0)
+        if not self.env['download_changed']:
+            print 'No new updates where downloaded, nothing to upload.'.format(self.env['patch_name'])
+            exit(0)
 
         mp_server = self.env['MP_URL']
         user_params = {
