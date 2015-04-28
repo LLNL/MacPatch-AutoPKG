@@ -31,7 +31,7 @@ It's best to use [overrides](https://github.com/autopkg/autopkg/wiki/Recipe-Over
 autopkg make-override Firefox.macpatch
 ```
 
-Only keep the keys that your alter, remove any unchanged keys from the override file.
+Only keep the keys that you alter. Remove any unchanged keys from the override file.
 
 ###### Pre-install, post-install, and criteria scripts
 Scripts for criteria and pre/post-install are not included directly in the recipe xml. Instead they are placed into a sub-folder of the recipe called scripts, and the corresponding keys in the recipe are set to true.
