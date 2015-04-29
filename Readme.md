@@ -37,6 +37,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 
 **patch_name**
 * What to name the patch in MacPatch.
+
 *Example:*
 
 ```xml
@@ -46,6 +47,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 
 **description**
 * A description for the patch in MacPatch.
+
 *Example:*
 
 ```xml
@@ -55,6 +57,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 
 **description_url**
 * A url to find more info on the patch.
+
 *Example:*
 
 ```xml
@@ -64,6 +67,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 
 **patch_vendor**
 * The name of the patch vendor.
+
 *Example:*
 
 ```xml
@@ -78,6 +82,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
   * Medium
   * Low
   * Unknown
+
 *Example:*
 
 ```xml
@@ -91,6 +96,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
   * "Mac OS X, Mac OS X Server"
   * "Mac OS X"
   * "Mac OS X Server"
+
 *Example:*
 
 ```xml
@@ -104,6 +110,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
   * "10.10.\*" 
   * "10.9.\*, 10.10.\*" 
   * Use "\*" for all versions
+
 *Example:*
 
 ```xml
@@ -114,6 +121,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 **patch_criteria**
 * An array of patch criteria.
 <br>See MacPatch [docs](https://macpatch.github.io/documentation/custom-patch-content.html#patch_criteria_lang) for more info.
+
 *Example:*
 
 ```xml
@@ -129,6 +137,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 <br>Scripts are not included directly in the recipe xml. Instead they are placed into a "scripts" sub-folder of the recipe and the corresponding key in the recipe is set to true.
 <br>If this key is set to true, the processor will look for any file ending with `.criteria-script` in the `./scripts` folder. 
 <br>You can have any number of criteria scripts.
+
 *Example:*
 
 ```xml
@@ -140,6 +149,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 * True/False key to indicate if a patch pre-install script is used.
 <br>Scripts are not included directly in the recipe xml. Instead they are placed into a "scripts" sub-folder of the recipe and the corresponding key in the recipe is set to true.
 <br>If this key is set to true, the processor will look a file named `preinstall.script` in the `./scripts` folder. 
+
 *Example:*
 
 ```xml
@@ -151,6 +161,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 * True/False key to indicate if a patch post-install script is used.
 <br>Scripts are not included directly in the recipe xml. Instead they are placed into a "scripts" sub-folder of the recipe and the corresponding key in the recipe is set to true.
 <br>If this key is set to true, the processor will look a file named `postinstall.script` in the `./scripts` folder. 
+
 *Example:*
 
 ```xml
@@ -160,6 +171,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 
 **pkg_env_var**
 * Environment variables to set before patch executes.
+
 *Example:*
 
 ```xml
@@ -169,6 +181,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 
 **patch_install_weight**
 * A number between 1 to 100. Patches are ordered for install by this number. Default is 30. Change this value to control the order it will install.
+
 *Example:*
 
 ```xml
@@ -178,6 +191,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 
 **patch_reboot**
 * Set if patch requires a reboot. Notice this key is not True/False, instead its Yes/No
+
 *Example:*
 
 ```xml
