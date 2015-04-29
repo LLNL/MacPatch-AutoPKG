@@ -220,7 +220,7 @@ Below is a sample Firefox recipe with the needed inputs to upload to a MacPatch 
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads Firefox into MacPatch.</string>
+    <string>Uploads Firefox into MacPatch</string>
 
     <key>Identifier</key>
     <string>com.github.smsg-mac-dev.macpatch.firefox</string>
@@ -231,7 +231,7 @@ Below is a sample Firefox recipe with the needed inputs to upload to a MacPatch 
         <string>Firefox</string>
 
         <key>description</key>
-        <string>Firefox browser.</string>
+        <string>Firefox web browser</string>
 
         <key>description_url</key>
         <string>http://www.mozilla.org/en-US/firefox/</string>
@@ -251,6 +251,7 @@ Below is a sample Firefox recipe with the needed inputs to upload to a MacPatch 
         <key>patch_criteria</key>
         <array>
             <string>File@Exists@/Applications/Firefox.app@True</string>
+            <string>File@VERSION@/Applications/Firefox.app@32.0.0;GTE</string>
             <string>File@VERSION@/Applications/Firefox.app@#version#;LT</string>
         </array>
 
