@@ -33,6 +33,24 @@ autopkg make-override Firefox.macpatch
 
 Only keep the keys that you alter. Remove any unchanged keys from the override file.
 
+###### Input keys
+
+Key | Valid Values | Comment
+----|------|------
+patch_name | String | Patch name for MacPatch
+description | String  | comment
+description_url | URL | comment
+patch_vendor | String | comment
+patch_severity | Unknown/High/Medium/Low | comment
+OSType | "Mac OS X, Mac OS X Server"/"Mac OS X"/"Mac OS X Server" | Desktop, Server or both
+OSVersion | Version Number | Comma separated list of OS versions. Use * for any number. ex: "10.10.*"" or "10.9.*, 10.10.*" Use "*" for all OS versions.
+patch_criteria | Array of criteria | See docs
+patch_criteria_scripts | True/False | See pre-install scripts section below
+pkg_preinstall | True/False | See pre-install scripts section below
+pkg_postinstall | True/False | See pre-install scripts section below
+patch_install_weight | 1 to 100 | Patches are ordered for install by this number. Default is 30. Change this value to control the order it will install.
+patch_reboot | Yes/No | Notice not True/False
+
 ###### Pre-install, post-install, and criteria scripts
 Scripts for criteria and pre/post-install are not included directly in the recipe xml. Instead they are placed into a sub-folder of the recipe named scripts, and the corresponding keys in the recipe are set to true.
 
