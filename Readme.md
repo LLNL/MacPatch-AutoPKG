@@ -142,8 +142,8 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 **patch_criteria_scripts**
 * True/False key to indicate if patch criteria scripts are used.
 <br>Scripts are not included directly in the recipe xml. Instead they are placed into a "scripts" sub-folder of the recipe and the corresponding key in the recipe is set to true.
-<br>If this key is set to true, the processor will look for any file ending with `.criteria-script` in the `./scripts` folder. 
-<br>You can have any number of criteria scripts.
+<br>If this key is set to true, the processor will look for any files with a `.criteria-script` file extension in the `./scripts` folder. 
+<br>You can have any number of criteria scripts as long as they have `.criteria-script` file extension. ex: script1.criteria-script, script2.criteria-script
 
 *Example:*
 
