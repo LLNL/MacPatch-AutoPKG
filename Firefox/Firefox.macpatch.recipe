@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads Firefox into MacPatch.</string>
+    <string>Uploads Firefox into MacPatch</string>
 
     <key>Identifier</key>
     <string>com.github.smsg-mac-dev.macpatch.firefox</string>
@@ -14,7 +14,7 @@
         <string>Firefox</string>
 
         <key>description</key>
-        <string>Firefox browser.</string>
+        <string>Firefox web browser</string>
 
         <key>description_url</key>
         <string>http://www.mozilla.org/en-US/firefox/</string>

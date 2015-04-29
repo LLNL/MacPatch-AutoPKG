@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads Firefox into MacPatch.</string>
+    <string>Uploads Google Chrome into MacPatch</string>
 
     <key>Identifier</key>
-    <string>com.github.smsg-mac-dev.macpatch.googlechrome</string>
+    <string>com.github.smsg-mac-dev.macpatch.googleChrome</string>
 
     <key>Input</key>
     <dict>
@@ -14,7 +14,7 @@
         <string>Google Chrome</string>
 
         <key>description</key>
-        <string>Google Chrome browser.</string>
+        <string>Google Chrome web browser</string>
 
         <key>description_url</key>
         <string>http://google.com/chrome</string>
