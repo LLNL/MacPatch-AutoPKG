@@ -58,18 +58,6 @@ Below is a sample Firefox recipe with the needed inputs to upload to a MacPatch 
 
     <key>Input</key>
     <dict>
-        <key>auth_user</key>
-        <string>autopkg</string>
-
-        <key>auth_pass</key>
-        <string>password</string>
-
-        <key>mp_server_url</key>
-        <string>https://macpatch.company.com</string>
-
-        <key>verify_ssl</key>
-        <true/>
-
         <key>patch_name</key>
         <string>Firefox</string>
 
