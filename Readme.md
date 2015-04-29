@@ -37,13 +37,13 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 
 Key | Valid Values | Comment
 ----|------|------
-patch_name | String | Patch name for MacPatch
-description | String  | comment
-description_url | URL | comment
-patch_vendor | String | comment
-patch_severity | Unknown/High/Medium/Low | comment
-OSType | "Mac OS X, Mac OS X Server"/"Mac OS X"/"Mac OS X Server" | Desktop, Server or both
-OSVersion | Version Number | Comma separated list of OS versions. Use * for any number. ex: "10.10.*"" or "10.9.*, 10.10.*" Use "*" for all OS versions.
+patch_name | String | MacPatch patch name
+description | String  | MacPatch description of patch
+description_url | URL | URL to patch home page
+patch_vendor | String | Vendor name<br>ex: Adobe
+patch_severity | Unknown<br>High<br>Medium<br>Low | MacPatch patch severity
+OSType | "Mac OS X, Mac OS X Server"<br>"Mac OS X"<br>"Mac OS X Server" | Desktop, Server or both
+OSVersion | Version Number | Comma separated list of OS versions.<br>Use * for any number.<br>ex: "10.10.*"" or "10.9.*, 10.10.*" Use "*" for all OS versions.
 patch_criteria | Array of criteria | See docs
 patch_criteria_scripts | True/False | See pre-install scripts section below
 pkg_preinstall | True/False | See pre-install scripts section below
