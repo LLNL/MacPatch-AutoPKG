@@ -36,6 +36,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 ###### Input keys
 
 ```patch_name```
+
 * What to name the patch in MacPatch.
 * **Example:**
 
@@ -44,7 +45,7 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 <string>Firefox</string>
 ```
 
-```description```
+*description*
 * A description for the patch in MacPatch.
 * **Example:**
 
