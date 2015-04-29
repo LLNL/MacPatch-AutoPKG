@@ -45,8 +45,6 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 <string>Firefox</string>
 ```
 
-----------------
-
 **description**
 * A description for the patch in MacPatch.
 
@@ -57,7 +55,6 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 <string>Firefox browser.</string>
 ```
 
-----------------
 
 **description_url**
 * A url to find more info on the patch.
@@ -69,7 +66,6 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 <string>http://www.mozilla.org/en-US/firefox/</string>
 ```
 
-----------------
 
 **patch_vendor**
 * The name of the patch vendor.
@@ -81,7 +77,6 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 <string>Mozilla</string>
 ```
 
-----------------
 
 **patch_severity**
 * Severity of the patch.
@@ -98,7 +93,6 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 <string>High</string>
 ```
 
-----------------
 
 **OSType**
 * Which OS types is the patch valid for. Having the Server.app installed makes it a Sever.
@@ -114,7 +108,6 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 <string>Mac OS X, Mac OS X Server</string>
 ```
 
-----------------
 
 **OSVersion**
 * Comma separated list of OS versions to apply the patch to.
@@ -130,7 +123,6 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 <string>10.10.*</string>
 ```
 
-----------------
 
 **patch_criteria**
 * An array of patch criteria.
@@ -146,7 +138,6 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 </array>
 ```
 
-----------------
 
 **patch_criteria_scripts**
 * True/False key to indicate if patch criteria scripts are used.
@@ -161,7 +152,6 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 <true/>
 ```
 
-----------------
 
 **pkg_preinstall**
 * True/False key to indicate if a patch pre-install script is used.
@@ -175,7 +165,6 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 <true/>
 ```
 
-----------------
 
 **pkg_postinstall**
 * True/False key to indicate if a patch post-install script is used.
@@ -189,7 +178,6 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 <false/>
 ```
 
-----------------
 
 **pkg_env_var**
 * Environment variables to set before patch executes.
@@ -201,7 +189,6 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 <string>myvar=1,tdir=/tmp/</string>
 ```
 
-----------------
 
 **patch_install_weight**
 * A number between 1 to 100. Patches are ordered for install by this number. Default is 30. Change this value to control the order it will install.
@@ -213,7 +200,6 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 <string>30</string>
 ```
 
-----------------
 
 **patch_reboot**
 * Set if patch requires a reboot. Notice this key is not True/False, instead its Yes/No
