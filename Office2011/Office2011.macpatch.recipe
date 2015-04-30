@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Uploads Office 2011 updates into MacPatch</string>
+
+    <key>Identifier</key>
+    <string>com.github.smsg-mac-dev.macpatch.office2011Updates</string>
+
+    <key>Input</key>
+    <dict>
+        <key>patch_name</key>
+        <string>Microsoft Office 2011</string>
+
+        <key>description</key>
+        <string>Microsoft Office 2011 Updates</string>
+
+        <key>description_url</key>
+        <string>http://www.microsoft.com/mac/downloads</string>
+
+        <key>patch_vendor</key>
+        <string>Microsoft</string>
+
+        <key>patch_severity</key>
+        <string>High</string>
+
+        <key>OSType</key>
+        <string>Mac OS X, Mac OS X Server</string>
+
+        <key>OSVersion</key>
+        <string>*</string>
+
+        <key>patch_criteria</key>
+        <array>
+            <string>File@Exists@/Applications/Microsoft Office 2011/Office/MicrosoftOffice.framework@True</string>
+            <string>File@VERSION@/Applications/Microsoft Office 2011/Office/MicrosoftOffice.framework@14.2.3;GTE</string>
+            <string>File@VERSION@/Applications/Microsoft Office 2011/Office/MicrosoftOffice.framework@#version#;LT</string>
+        </array>
+
+        <key>patch_criteria_scripts</key>
+        <false/>
+
+        <key>pkg_preinstall</key>
+        <false/>
+
+        <key>pkg_postinstall</key>
+        <false/>
+
+        <key>pkg_env_var</key>
+        <string></string>
+
+        <key>patch_install_weight</key>
+        <string>30</string>
+
+        <key>patch_reboot</key>
+        <string>No</string>
+    </dict>
+
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+
+    <key>ParentRecipe</key>
+    <string>com.github.autopkg.pkg.Office2011Updates</string>
+
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+            </dict>
+            <key>Processor</key>
+            <string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+        </dict>
+    </array>
+</dict>
+</plist>

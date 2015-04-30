@@ -1,0 +1,5 @@
+#!/bin/bash
+# Disable XQuartz auto updates
+
+defaults write /Applications/Utilities/XQuartz.app/Contents/Info SUEnableAutomaticChecks -boolean NO
+chmod 644 /Applications/Utilities/XQuartz.app/Contents/Info.plist

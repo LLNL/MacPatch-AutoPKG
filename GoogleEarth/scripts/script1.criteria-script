@@ -1,0 +1,19 @@
+#!/bin/bash
+
+newVer="#version#"
+installedVer=`defaults read "/Applications/Google Earth.app/Contents/Info" CFBundleVersion`
+
+#this function is good up to 4 place version number, ex: 1.2.3.4000
+function version {
+	#the double "at sign" below is because MacPatch uses it as a delimiter
+	echo "$@@" | awk -F. '{ printf("%d%04d%04d%06d\n", $1,$2,$3,$4); }';
+}
+
+if [ $(version $newVer) -gt $(version $installedVer) ]; then
+	echo "Installed version is older, we need the patch"
+	exit 0
+else
+	echo "Installed version is the same or newer, we DONT need the patch"
+exit 1
+
+fi

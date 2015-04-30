@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [[ ! -d "/var/root/.Trash" ]]; then
+	mkdir -p "/var/root/.Trash"
+fi
