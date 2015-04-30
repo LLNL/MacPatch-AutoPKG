@@ -51,10 +51,7 @@ class MPWebService(object):
         self._token = resp.json()['result']
 
         if errorno != 0:
-        #     print 'The MacPatch web service returned error: "{0} {1}"'.format(errorno, errormsg)
-        #     print 'Responce:', resp.json()
-        #     return False
-            e = 'Error: "{0} {1}\nResponce: {2}"'.format(errorno, errormsg, resp.json())
+            e = 'Error while getting an auth token: "{0} {1}\nResponce: {2}"'.format(errorno, errormsg, resp.json())
             raise Exception(e)
 
         return True
@@ -72,10 +69,7 @@ class MPWebService(object):
         self._patch_id = resp.json()['result']
 
         if errorno != 0:
-            # print 'The MacPatch web service returned error: "{0} {1}"'.format(errorno, errormsg)
-            # print 'Responce:', resp.json()
-            # return False
-            e = 'Error: "{0} {1}\nResponce: {2}"'.format(errorno, errormsg, resp.json())
+            e = 'Error while posting patch data: "{0} {1}\nResponce: {2}"'.format(errorno, errormsg, resp.json())
             raise Exception(e)
 
         return True
@@ -99,9 +93,7 @@ class MPWebService(object):
         result = resp.json()['result']
 
         if errorno != 0:
-            # print 'The MacPatch web service returned error: "{0} {1}"'.format(errorno, errormsg)
-            # print 'Responce:', resp.json()
-            e = 'Error: "{0} {1}\nResponce: {2}"'.format(errorno, errormsg, resp.json())
+            e = 'Error while posting the pkg: "{0} {1}\nResponce: {2}"'.format(errorno, errormsg, resp.json())
             raise Exception(e)
 
         return True
@@ -203,10 +195,14 @@ class MacPatchImporterProcessor(Processor):
 
     def main(self):
         if not self.env['download_changed']:
-            print 'No new updates where downloaded, nothing to upload.'.format(self.env['patch_name'])
+            print 'No new update was downloaded, nothing to upload.'
             exit(0)
 
         mp_server = self.env['MP_URL']
+        if not mp_server.startswith(('https://', 'http://')):
+            print 'MP_URL is missing the protocol, you should fix that. Assuming "https://", hope it works.'
+            print 'Example: defaults write com.github.autopkg MP_URL https://macpatch.company.com'
+
         user_params = {
             'authUser': self.env['MP_USER'],
             'authPass': self.env['MP_PASSWORD'],
