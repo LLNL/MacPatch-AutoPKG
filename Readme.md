@@ -16,7 +16,7 @@ autopkg repo-add http://github.com/autopkg/recipes.git
 
 You can find more information on AutoPkg [here](http://autopkg.github.io/autopkg/)
 
-###### Add repo
+###### Add MacPatch repo
 
 ```shell
 autopkg repo-add https://github.com/SMSG-MAC-DEV/MacPatch-AutoPKG.git
