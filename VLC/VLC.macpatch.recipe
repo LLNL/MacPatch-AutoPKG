@@ -13,6 +13,9 @@
         <key>patch_name</key>
         <string>VLC</string>
 
+        <key>patch_id</key>
+        <string>org.videolan.vlc</string>
+
         <key>description</key>
         <string>VLC media player</string>
 

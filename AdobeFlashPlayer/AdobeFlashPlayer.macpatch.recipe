@@ -13,6 +13,9 @@
         <key>patch_name</key>
         <string>Adobe Flash Player</string>
 
+        <key>patch_id</key>
+        <string>com.macromedia.Flash Player.plugin</string>
+
         <key>description</key>
         <string>Adobe Flash Player</string>
 

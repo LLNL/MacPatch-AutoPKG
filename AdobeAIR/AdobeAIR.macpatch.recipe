@@ -13,6 +13,9 @@
         <key>patch_name</key>
         <string>Adobe AIR</string>
 
+        <key>patch_id</key>
+        <string>com.adobe.air</string>
+
         <key>description</key>
         <string>Adobe AIR</string>
 

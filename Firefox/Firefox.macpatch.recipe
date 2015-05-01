@@ -13,6 +13,9 @@
         <key>patch_name</key>
         <string>Firefox</string>
 
+        <key>patch_id</key>
+        <string>org.mozilla.firefox.agile</string>
+
         <key>description</key>
         <string>Firefox web browser</string>
 

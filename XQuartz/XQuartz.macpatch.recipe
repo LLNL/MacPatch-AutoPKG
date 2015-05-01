@@ -13,6 +13,9 @@
         <key>patch_name</key>
         <string>XQuartz</string>
 
+        <key>patch_id</key>
+        <string>org.macosforge.xquartz.X11</string>
+
         <key>description</key>
         <string>XQuartz</string>
 

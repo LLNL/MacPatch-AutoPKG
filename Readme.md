@@ -8,7 +8,7 @@ The MacPatchImporterProcessor recipe is an AutoPkg ["shared recipe processor"](h
 
 #### Setup
 
-You must have [AutoPkg](https://github.com/autopkg/autopkg/releases/latest) installed and the main recipe repo added.
+You must have [AutoPkg](https://github.com/autopkg/autopkg/releases/latest) installed the main recipe repo added.
 
 ```shell
 autopkg repo-add http://github.com/autopkg/recipes.git
@@ -44,13 +44,23 @@ Only keep the keys that you alter. Remove any unchanged keys from the override f
 #### Input keys
 
 **patch_name**
-* What to name the patch in MacPatch.
+* Patch name for use in MacPatch.
 
 *Example:*
 
 ```xml
 <key>patch_name</key>
 <string>Firefox</string>
+```
+
+**patch_id**
+* MacPatch bundle ID.
+
+*Example:*
+
+```xml
+<key>patch_id</key>
+<string>org.mozilla.firefox</string>
 ```
 
 **description**
@@ -237,6 +247,9 @@ Below is a sample Firefox recipe with the needed inputs to upload to a MacPatch 
     <dict>
         <key>patch_name</key>
         <string>Firefox</string>
+
+        <key>patch_id</key>
+        <string>org.mozilla.firefox</string>
 
         <key>description</key>
         <string>Firefox web browser</string>

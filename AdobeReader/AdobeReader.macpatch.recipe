@@ -13,6 +13,9 @@
         <key>patch_name</key>
         <string>Adobe Reader</string>
 
+        <key>patch_id</key>
+        <string>com.adobe.ReaderXI</string>
+
         <key>description</key>
         <string>Adobe Reader XI</string>
 

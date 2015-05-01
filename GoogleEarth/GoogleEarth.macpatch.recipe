@@ -13,6 +13,9 @@
         <key>patch_name</key>
         <string>Google Earth</string>
 
+        <key>patch_id</key>
+        <string>com.google.earth</string>
+
         <key>description</key>
         <string>Google Earth</string>
 

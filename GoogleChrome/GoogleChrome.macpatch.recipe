@@ -13,6 +13,9 @@
         <key>patch_name</key>
         <string>Google Chrome</string>
 
+        <key>patch_id</key>
+        <string>com.google.Chrome</string>
+
         <key>description</key>
         <string>Google Chrome web browser</string>
 

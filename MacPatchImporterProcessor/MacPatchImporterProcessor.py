@@ -128,6 +128,10 @@ class MacPatchImporterProcessor(Processor):
             "required": True,
             "description": "Patch name.",
         },
+        "patch_id": {
+            "required": False,
+            "description": "Bundle-id for patch. ex: 'org.mozilla.firefox'. Default is to use bundleid from parent recipe.",
+        },
         "description": {
             "required": True,
             "description": "Patch description.",
@@ -155,10 +159,6 @@ class MacPatchImporterProcessor(Processor):
         "patch_criteria": {
             "required": True,
             "description": "A list of patch criteria, in order of evaluation. Type and data, ie 'File' 'File@/path/file@exists@True'",
-        },
-        "bundleid": {
-            "required": False,
-            "description": "Bundle-id for patch. ex: 'org.mozilla.firefox'. Default is to use bundleid from parent recipe.",
         },
         "pkg_preinstall": {
             "required": True,
@@ -219,7 +219,7 @@ class MacPatchImporterProcessor(Processor):
             'pkg_env_var': self.env['pkg_env_var'],
             'patch_install_weight': self.env['patch_install_weight'],
             'patch_reboot': self.env['patch_reboot'],
-            'bundle_id': self.env['bundleid'],
+            'bundle_id': self.env['patch_id'],
             'patch_ver': self.env['version'],
             }
 

@@ -13,6 +13,9 @@
         <key>patch_name</key>
         <string>Oracle Java 8</string>
 
+        <key>patch_id</key>
+        <string>com.oracle.java.8</string>
+
         <key>description</key>
         <string>Oracle Java 8 JDK</string>
 
