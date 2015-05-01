@@ -195,8 +195,7 @@ class MacPatchImporterProcessor(Processor):
 
     def main(self):
         if not self.env['download_changed']:
-            print 'No new update was downloaded, nothing to upload.'
-            exit(0)
+            raise ProcessorError('No new update was downloaded, nothing to upload.')
 
         mp_server = self.env['MP_URL']
         if not mp_server.startswith(('https://', 'http://')):
@@ -254,16 +253,14 @@ class MacPatchImporterProcessor(Processor):
             mp_webservice.post_data(payload)
             self.env['patch_uploaded'] = mp_webservice.post_pkg(self.env['pkg_path'])
         except Exception, e:
-            print 'Something went wrong while communicating with the web service.'
-            print e
-            exit(1)
+            raise ProcessorError('Something went wrong while communicating with the web service.\n{0}'.format(e))
         
         self.env['puuid'] = mp_webservice.patch_id()
 
-        print '\n'
-        print 'Patch Name:      ', self.env['patch_name']
-        print 'Patch ID:        ', self.env['puuid']
-        print 'Patch Uploaded:  ', self.env['patch_uploaded']
+        print '\nThe following patch was uploaded to MacPatch:'
+        print '    {:35} {:35} {:15} {}'.format('Bundle-id', 'Name', 'Version', 'PUUID')
+        print '    {:35} {:35} {:15} {}'.format('---------', '----', '-------', '-----')
+        print '    {:35} {:35} {:15} {}'.format(self.env['patch_id'], self.env['patch_name'], self.env['version'], self.env['puuid'])
 
 if __name__ == "__main__":
     processor = MacPatchImporterProcessor()
