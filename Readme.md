@@ -29,7 +29,7 @@ Some settings can be set for all .macpatch recipes in the AutoPkg preferences.
 defaults write com.github.autopkg MP_URL https://macpatch.company.com
 defaults write com.github.autopkg MP_USER autopkg
 defaults write com.github.autopkg MP_PASSWORD password
-defaults write com.github.autopkg MP_SSL -bool NO
+defaults write com.github.autopkg MP_SSL_VERIFY -bool NO
 ```
 
 ###### Create override for a recipe

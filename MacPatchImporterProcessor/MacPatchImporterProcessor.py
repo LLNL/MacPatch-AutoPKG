@@ -120,7 +120,7 @@ class MacPatchImporterProcessor(Processor):
             "required": True,
             "description": "MacPatch server url, can be set system wide in the com.github.autopkg plist.",
         },
-        "MP_SSL": {
+        "MP_SSL_VERIFY": {
             "required": True,
             "description": "Set to False to ignore ssl errors, can be set system wide in the com.github.autopkg plist.",
         },
@@ -250,7 +250,7 @@ class MacPatchImporterProcessor(Processor):
                         payload['patch_criteria_enc'].append(c)
 
         try:
-            mp_webservice = MPWebService(mp_server, user_params, verify=self.env['MP_SSL'])
+            mp_webservice = MPWebService(mp_server, user_params, verify=self.env['MP_SSL_VERIFY'])
             mp_webservice.post_data(payload)
             self.env['patch_uploaded'] = mp_webservice.post_pkg(self.env['pkg_path'])
         except Exception, e:
