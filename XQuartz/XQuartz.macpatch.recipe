@@ -73,9 +73,46 @@
             <key>Arguments</key>
             <dict>
                 <key>source_pkg</key>
-                <string>%pathname%/XQuartz.pkg</string>
+                <string>%pathname%/*.pkg</string>
+                <key>pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%.pkg</string>
             </dict>
         </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>flat_pkg_path</key>
+                <string>%pkg_path%</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/UNPACK</string>
+            </dict>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/UNPACK/x11.pkg/Payload</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/PAYLOAD</string>
+            </dict>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_plist_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/PAYLOAD/Applications/Utilities/XQuartz.app/Contents/Info.plist</string>
+            </dict>
+        </dict>
+        
         <dict>
             <key>Arguments</key>
             <dict>

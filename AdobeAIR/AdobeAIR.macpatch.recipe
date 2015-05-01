@@ -6,7 +6,7 @@
     <string>Uploads Adobe AIR into MacPatch</string>
 
     <key>Identifier</key>
-    <string>com.github.smsg-mac-dev.macpatch.AdobeAIR.</string>
+    <string>com.github.smsg-mac-dev.macpatch.AdobeAIR</string>
 
     <key>Input</key>
     <dict>
