@@ -257,10 +257,12 @@ class MacPatchImporterProcessor(Processor):
         
         self.env['puuid'] = mp_webservice.patch_id()
 
-        print '\nThe following patch was uploaded to MacPatch:'
+        print '\n' 
+        print 'The following patch was uploaded to MacPatch:'
         print '    {:35} {:35} {:15} {}'.format('Bundle-id', 'Name', 'Version', 'PUUID')
         print '    {:35} {:35} {:15} {}'.format('---------', '----', '-------', '-----')
         print '    {:35} {:35} {:15} {}'.format(self.env['patch_id'], self.env['patch_name'], self.env['version'], self.env['puuid'])
+        print '\n'
 
 if __name__ == "__main__":
     processor = MacPatchImporterProcessor()
