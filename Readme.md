@@ -8,7 +8,7 @@ The MacPatchImporterProcessor recipe is an AutoPkg ["shared recipe processor"](h
 
 #### Setup
 
-You must have [AutoPkg](https://github.com/autopkg/autopkg/releases/latest) installed the main recipe repo added.
+You must have [AutoPkg](https://github.com/autopkg/autopkg/releases/latest) installed and the main recipe repo added.
 
 ```shell
 autopkg repo-add http://github.com/autopkg/recipes.git
