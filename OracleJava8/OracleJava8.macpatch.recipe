@@ -6,7 +6,7 @@
     <string>Uploads Oracle Java 8 into MacPatch</string>
 
     <key>Identifier</key>
-    <string>com.github.smsg-mac-dev.macpatch.oracleJava8.</string>
+    <string>com.github.smsg-mac-dev.macpatch.oracleJava8</string>
 
     <key>Input</key>
     <dict>
