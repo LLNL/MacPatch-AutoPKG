@@ -29,6 +29,11 @@ Some settings can be set for all .macpatch recipes in the AutoPkg preferences.
 defaults write com.github.autopkg MP_URL https://macpatch.company.com
 defaults write com.github.autopkg MP_USER autopkg
 defaults write com.github.autopkg MP_PASSWORD password
+```
+
+For environments where the MacPatch server is using a self signed cert, set this key also.
+
+```shell
 defaults write com.github.autopkg MP_SSL_VERIFY -bool NO
 ```
 
