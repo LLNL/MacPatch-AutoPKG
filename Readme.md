@@ -31,7 +31,7 @@ defaults write com.github.autopkg MP_USER autopkg
 defaults write com.github.autopkg MP_PASSWORD password
 ```
 
-For environments where the MacPatch server is using a self signed cert, set this key also.
+Environments using self signed certificates should set the following key.
 
 ```shell
 defaults write com.github.autopkg MP_SSL_VERIFY -bool NO
