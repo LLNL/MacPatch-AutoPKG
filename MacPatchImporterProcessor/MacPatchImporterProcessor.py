@@ -189,6 +189,9 @@ class MacPatchImporterProcessor(Processor):
         "patch_uploaded": {
             "description": "True if patch was uploaded successfully."
         },
+        "macpatch_importer_summary_result": {
+            "description": "Details of the patch uploaded to MacPatch."
+        }
     }
     description = __doc__
 
@@ -257,12 +260,21 @@ class MacPatchImporterProcessor(Processor):
         
         self.env['puuid'] = mp_webservice.patch_id()
 
-        print '\n' 
-        print 'The following patch was uploaded to MacPatch:'
-        print '    {:35} {:35} {:15} {}'.format('Bundle-id', 'Name', 'Version', 'PUUID')
-        print '    {:35} {:35} {:15} {}'.format('---------', '----', '-------', '-----')
-        print '    {:35} {:35} {:15} {}'.format(self.env['patch_id'], self.env['patch_name'], self.env['version'], self.env['puuid'])
-        print '\n'
+
+        # clear any pre-exising summary result
+        if 'macpatch_importer_summary_result' in self.env:
+            del self.env['macpatch_importer_summary_result']
+
+        self.env['macpatch_importer_summary_result'] = {
+            'summary_text': 'The following patch was uploaded to MacPatch:',
+            'report_fields': ['bundle_id', 'name', 'version', 'puuid'],
+            'data': {
+                'bundle_id': self.env['patch_id'],
+                'name': self.env['patch_name'],
+                'version': self.env['version'],
+                'puuid': self.env['puuid']
+            }
+        }
 
 if __name__ == "__main__":
     processor = MacPatchImporterProcessor()
