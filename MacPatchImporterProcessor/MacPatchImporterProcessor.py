@@ -190,7 +190,7 @@ class MacPatchImporterProcessor(Processor):
             "description": "True if patch was uploaded successfully."
         },
         "macpatch_importer_summary_result": {
-            "description": "Details of the patch uploaded to MacPatch."
+            "description": "List of patches uploaded to MacPatch."
         }
     }
     description = __doc__
@@ -266,7 +266,7 @@ class MacPatchImporterProcessor(Processor):
             del self.env['macpatch_importer_summary_result']
 
         self.env['macpatch_importer_summary_result'] = {
-            'summary_text': 'The following patch was uploaded to MacPatch:',
+            'summary_text': 'The following patches were uploaded to MacPatch:',
             'report_fields': ['bundle_id', 'name', 'version', 'puuid'],
             'data': {
                 'bundle_id': self.env['patch_id'],
