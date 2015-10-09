@@ -36,9 +36,9 @@
 
         <key>patch_criteria</key>
         <array>
-            <string>Exists@/Applications/VMware Fusion.app@True</string>
-            <string>Version@/Applications/VMware Fusion.app@7.0.0;GTE</string>
-            <string>Version@/Applications/VMware Fusion.app@#version#;LT</string>
+            <string>File@Exists@/Applications/VMware Fusion.app@True</string>
+            <string>File@Version@/Applications/VMware Fusion.app@7.0.0;GTE</string>
+            <string>File@Version@/Applications/VMware Fusion.app@#version#;LT</string>
         </array>
 
         <key>patch_criteria_scripts</key>

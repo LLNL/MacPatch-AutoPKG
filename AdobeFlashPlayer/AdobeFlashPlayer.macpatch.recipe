@@ -37,7 +37,7 @@
         <key>patch_criteria</key>
         <array>
             <string>File@Exists@/Library/Internet Plug-Ins/Flash Player.plugin@True</string>
-            <string>Version@/Library/Internet Plug-Ins/Flash Player.plugin@#version#;LT</string>
+            <string>File@Version@/Library/Internet Plug-Ins/Flash Player.plugin@#version#;LT</string>
         </array>
 
         <key>patch_criteria_scripts</key>
