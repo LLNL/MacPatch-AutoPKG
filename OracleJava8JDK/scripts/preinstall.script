@@ -1,0 +1,8 @@
+#!/bin/sh
+# Remove old 1.8 JDKs
+
+count=`ls -1 /Library/Java/JavaVirtualMachines/jdk1.8*.jdk 2>/dev/null | wc -l | tr -d ' '`
+
+if [ $count -gt 0 ]; then
+	rm -R /Library/Java/JavaVirtualMachines/jdk1.8*.jdk
+fi
