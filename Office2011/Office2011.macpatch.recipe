@@ -57,7 +57,7 @@
         <string>30</string>
 
         <key>patch_reboot</key>
-        <string>No</string>
+        <string>Yes</string>
     </dict>
 
     <key>MinimumVersion</key>
