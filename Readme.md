@@ -242,80 +242,58 @@ Below is a sample Firefox recipe with the needed inputs to upload to a MacPatch 
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Description</key>
-    <string>Uploads Firefox into MacPatch</string>
-
-    <key>Identifier</key>
-    <string>com.github.smsg-mac-dev.macpatch.firefox</string>
-
-    <key>Input</key>
-    <dict>
-        <key>patch_name</key>
-        <string>Firefox</string>
-
-        <key>patch_id</key>
-        <string>org.mozilla.firefox</string>
-
-        <key>description</key>
-        <string>Firefox web browser</string>
-
-        <key>description_url</key>
-        <string>http://www.mozilla.org/en-US/firefox/</string>
-
-        <key>patch_vendor</key>
-        <string>Mozilla</string>
-
-        <key>patch_severity</key>
-        <string>High</string>
-
-        <key>OSType</key>
-        <string>Mac OS X, Mac OS X Server</string>
-
-        <key>OSVersion</key>
-        <string>*</string>
-
-        <key>patch_criteria</key>
-        <array>
-            <string>File@Exists@/Applications/Firefox.app@True</string>
-            <string>File@VERSION@/Applications/Firefox.app@32.0.0;GTE</string>
-            <string>File@VERSION@/Applications/Firefox.app@#version#;LT</string>
-        </array>
-
-        <key>patch_criteria_scripts</key>
-        <false/>
-
-        <key>pkg_preinstall</key>
-        <true/>
-
-        <key>pkg_postinstall</key>
-        <false/>
-
-        <key>pkg_env_var</key>
-        <string></string>
-
-        <key>patch_install_weight</key>
-        <string>30</string>
-
-        <key>patch_reboot</key>
-        <string>No</string>
-    </dict>
-
-    <key>MinimumVersion</key>
-    <string>0.2.0</string>
-
-    <key>ParentRecipe</key>
-    <string>com.github.autopkg.pkg.Firefox_EN</string>
-
-    <key>Process</key>
-    <array>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-            </dict>
-            <key>Processor</key>
-            <string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
-        </dict>
-    </array>
+	<key>Description</key>
+	<string>Uploads Firefox into MacPatch</string>
+	<key>Identifier</key>
+	<string>com.github.smsg-mac-dev.macpatch.firefox</string>
+	<key>Input</key>
+	<dict>
+		<key>OSType</key>
+		<string>Mac OS X, Mac OS X Server</string>
+		<key>OSVersion</key>
+		<string>*</string>
+		<key>description</key>
+		<string>Firefox web browser</string>
+		<key>description_url</key>
+		<string>http://www.mozilla.org/en-US/firefox/</string>
+		<key>patch_criteria</key>
+		<array>
+			<string>File@Exists@/Applications/Firefox.app@True</string>
+			<string>File@VERSION@/Applications/Firefox.app@32.0.0;GTE</string>
+			<string>File@VERSION@/Applications/Firefox.app@#version#;LT</string>
+		</array>
+		<key>patch_criteria_scripts</key>
+		<false/>
+		<key>patch_id</key>
+		<string>org.mozilla.firefox</string>
+		<key>patch_install_weight</key>
+		<string>30</string>
+		<key>patch_name</key>
+		<string>Firefox</string>
+		<key>patch_reboot</key>
+		<string>No</string>
+		<key>patch_severity</key>
+		<string>High</string>
+		<key>patch_vendor</key>
+		<string>Mozilla</string>
+		<key>pkg_env_var</key>
+		<string></string>
+		<key>pkg_postinstall</key>
+		<false/>
+		<key>pkg_preinstall</key>
+		<true/>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.2.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.autopkg.pkg.Firefox_EN</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+		</dict>
+	</array>
 </dict>
 </plist>
 ```
