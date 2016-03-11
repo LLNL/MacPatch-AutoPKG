@@ -11,7 +11,7 @@
     <key>Input</key>
     <dict>
         <key>patch_name</key>
-        <string>VMware Fusion 7</string>
+        <string>VMware Fusion #version#</string>
 
         <key>patch_id</key>
         <string>com.vmware.fusion.7</string>

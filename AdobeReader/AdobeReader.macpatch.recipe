@@ -11,7 +11,7 @@
     <key>Input</key>
     <dict>
         <key>patch_name</key>
-        <string>Adobe Reader</string>
+        <string>Adobe Reader #version#</string>
 
         <key>patch_id</key>
         <string>com.adobe.ReaderXI</string>

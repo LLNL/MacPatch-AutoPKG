@@ -11,8 +11,7 @@
     <key>Input</key>
     <dict>
         <key>patch_name</key>
-        <string>Microsoft Office 2011</string>
-
+        <string>Microsoft Office 2011 #version#</string>
         <key>patch_id</key>
         <string>com.microsoft.office.2011.sp2_1</string>
 

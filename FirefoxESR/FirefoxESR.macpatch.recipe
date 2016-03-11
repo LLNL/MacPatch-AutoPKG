@@ -11,7 +11,7 @@
     <key>Input</key>
     <dict>
         <key>patch_name</key>
-        <string>Firefox ESR</string>
+        <string>Firefox ESR #version#</string>
 
         <key>patch_id</key>
         <string>org.mozilla.firefoxESR</string>

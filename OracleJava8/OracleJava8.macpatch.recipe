@@ -11,13 +11,13 @@
     <key>Input</key>
     <dict>
         <key>patch_name</key>
-        <string>Oracle Java 8</string>
+        <string>Oracle Java 8 JRE #version#</string>
 
         <key>patch_id</key>
         <string>com.oracle.java.8</string>
 
         <key>description</key>
-        <string>Oracle Java 8 JDK</string>
+        <string>Oracle Java 8 JRE</string>
 
         <key>description_url</key>
         <string>http://www.oracle.com/technetwork/java/javase/downloads/index.html</string>

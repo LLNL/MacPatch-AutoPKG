@@ -11,7 +11,7 @@
     <key>Input</key>
     <dict>
         <key>patch_name</key>
-        <string>Google Earth</string>
+        <string>Google Earth #version#</string>
 
         <key>patch_id</key>
         <string>com.google.earth</string>
