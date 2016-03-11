@@ -77,7 +77,7 @@ class MPWebService(object):
     def post_pkg(self, pkg_path):
         url = self._server_name + self.post_method
 
-        zip_path = os.path.join(pkg_path + '.zip')
+        zip_path = os.path.join(pkg_path.replace(' ', '_') + '.zip')
         pkg_filename = os.path.basename(pkg_path)
 
         with zipfile.ZipFile(zip_path, mode='w') as zip_file:
@@ -211,7 +211,7 @@ class MacPatchImporterProcessor(Processor):
             }
 
         payload = {
-            'patch_name': self.env['patch_name'],
+            'patch_name': self.env['patch_name'].replace('#version#', self.env['version']),
             'description': self.env['description'],
             'description_url': self.env['description_url'],
             'patch_vendor': self.env['patch_vendor'],
