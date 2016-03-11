@@ -4,72 +4,50 @@
 <dict>
     <key>Description</key>
     <string>Uploads VLC into MacPatch</string>
-
     <key>Identifier</key>
     <string>com.github.smsg-mac-dev.macpatch.googleEarth</string>
-
     <key>Input</key>
     <dict>
         <key>patch_name</key>
         <string>Google Earth #version#</string>
-
         <key>patch_id</key>
         <string>com.google.earth</string>
-
         <key>description</key>
         <string>Google Earth</string>
-
         <key>description_url</key>
         <string>http://www.google.com/earth/index.html</string>
-
         <key>patch_vendor</key>
         <string>Google</string>
-
         <key>patch_severity</key>
         <string>High</string>
-
         <key>OSType</key>
         <string>Mac OS X, Mac OS X Server</string>
-
         <key>OSVersion</key>
         <string>*</string>
-
         <key>patch_criteria</key>
         <array>
             <string>File@EXISTS@/Applications/Google Earth.app@True</string>
         </array>
-
         <key>patch_criteria_scripts</key>
         <true/>
-
         <key>pkg_preinstall</key>
         <false/>
-
         <key>pkg_postinstall</key>
         <false/>
-
         <key>pkg_env_var</key>
         <string></string>
-
         <key>patch_install_weight</key>
         <string>30</string>
-
         <key>patch_reboot</key>
         <string>No</string>
     </dict>
-
     <key>MinimumVersion</key>
     <string>0.2.0</string>
-
     <key>ParentRecipe</key>
     <string>com.github.autopkg.pkg.google-earth</string>
-
     <key>Process</key>
     <array>
         <dict>
-            <key>Arguments</key>
-            <dict>
-            </dict>
             <key>Processor</key>
             <string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
         </dict>

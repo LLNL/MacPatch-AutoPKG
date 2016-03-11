@@ -4,74 +4,52 @@
 <dict>
     <key>Description</key>
     <string>Uploads VMware Fusion updates into MacPatch</string>
-
     <key>Identifier</key>
     <string>com.github.smsg-mac-dev.macpatch.VMwareFusion</string>
-
     <key>Input</key>
     <dict>
         <key>patch_name</key>
         <string>VMware Fusion #version#</string>
-
         <key>patch_id</key>
         <string>com.vmware.fusion.7</string>
-
         <key>description</key>
         <string>VMware Fusion v7</string>
-
         <key>description_url</key>
         <string>http://www.vmware.com/support</string>
-
         <key>patch_vendor</key>
         <string>VMware</string>
-
         <key>patch_severity</key>
         <string>High</string>
-
         <key>OSType</key>
         <string>Mac OS X, Mac OS X Server</string>
-
         <key>OSVersion</key>
         <string>*</string>
-
         <key>patch_criteria</key>
         <array>
             <string>File@Exists@/Applications/VMware Fusion.app@True</string>
             <string>File@Version@/Applications/VMware Fusion.app@7.0.0;GTE</string>
             <string>File@Version@/Applications/VMware Fusion.app@#version#;LT</string>
         </array>
-
         <key>patch_criteria_scripts</key>
         <false/>
-
         <key>pkg_preinstall</key>
         <false/>
-
         <key>pkg_postinstall</key>
         <false/>
-
         <key>pkg_env_var</key>
         <string></string>
-
         <key>patch_install_weight</key>
         <string>30</string>
-
         <key>patch_reboot</key>
         <string>Yes</string>
     </dict>
-
     <key>MinimumVersion</key>
     <string>0.2.0</string>
-
     <key>ParentRecipe</key>
     <string>com.justinrummel.pkg.VMwareFusion</string>
-
     <key>Process</key>
     <array>
         <dict>
-            <key>Arguments</key>
-            <dict>
-            </dict>
             <key>Processor</key>
             <string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
         </dict>
