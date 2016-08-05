@@ -37,6 +37,20 @@ Environments using self signed certificates should set the following key.
 defaults write com.github.autopkg MP_SSL_VERIFY -bool NO
 ```
 
+###### Additional MacPatch environment settings for REST API
+
+Enable the use the REST API with the MP\_USE\_REST attribute. 
+
+```shell
+defaults write com.github.autopkg MP_USE_REST -bool YES
+```
+
+OPTIONAL: To change the default API port use the MP\_PORT attribute. Port 3600 is the default port.
+
+```shell
+defaults write com.github.autopkg MP_PORT 3600
+```
+
 ###### Create override for a recipe
 It's best to use [overrides](https://github.com/autopkg/autopkg/wiki/Recipe-Overrides) to set the recipe specific inputs for your environment. 
 
