@@ -96,7 +96,7 @@
             <dict>
             </dict>
             <key>Processor</key>
-            <string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+            <string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
         </dict>
     </array>
 </dict>
