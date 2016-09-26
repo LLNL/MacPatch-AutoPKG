@@ -101,7 +101,7 @@ class MPWebService(object):
 
 
 class MPWebService3(object):
-    """Post patch to MacPatch REST API server"""
+    """Post patch to MacPatch REST API server."""
 
     uri = "/api/v1/autopkg"
     timeout = 60
@@ -281,7 +281,7 @@ class MacPatchImporterProcessor(Processor):
             "description": "List of patches uploaded to MacPatch."
         }
     }
-    
+
     description = __doc__
 
     def main(self):
@@ -349,8 +349,8 @@ class MacPatchImporterProcessor(Processor):
                 print "Use New Services"
                 mp_webservice = MPWebService3(mp_server, mp_port, user_params, verify=self.env['MP_SSL_VERIFY'])
                 mp_webservice.post_data(payload)
-                self.env['patch_uploaded'] = mp_webservice.post_pkg(self.env['pkg_path'])  
-            else:   
+                self.env['patch_uploaded'] = mp_webservice.post_pkg(self.env['pkg_path'])
+            else:
                 print "Use Old Services"
                 mp_webservice = MPWebService(mp_server, user_params, verify=self.env['MP_SSL_VERIFY'])
                 mp_webservice.post_data(payload)
