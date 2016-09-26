@@ -11,7 +11,7 @@
     <key>Input</key>
     <dict>
         <key>patch_name</key>
-        <string>VLC</string>
+        <string>VLC #version#</string>
 
         <key>patch_id</key>
         <string>org.videolan.vlc</string>
@@ -68,11 +68,8 @@
     <key>Process</key>
     <array>
         <dict>
-            <key>Arguments</key>
-            <dict>
-            </dict>
             <key>Processor</key>
-            <string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+            <string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
         </dict>
     </array>
 </dict>

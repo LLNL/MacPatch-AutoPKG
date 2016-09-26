@@ -4,75 +4,53 @@
 <dict>
     <key>Description</key>
     <string>Uploads Adobe Flash Player into MacPatch</string>
-
     <key>Identifier</key>
     <string>com.github.smsg-mac-dev.macpatch.adobeFlashPlayer</string>
-
     <key>Input</key>
     <dict>
         <key>patch_name</key>
-        <string>Adobe Flash Player</string>
-
+        <string>Adobe Flash Player #version#</string>
         <key>patch_id</key>
         <string>com.macromedia.Flash Player.plugin</string>
-
         <key>description</key>
         <string>Adobe Flash Player</string>
-
         <key>description_url</key>
         <string>https://helpx.adobe.com/security.html#flashplayer</string>
-
         <key>patch_vendor</key>
         <string>Adobe</string>
-
         <key>patch_severity</key>
         <string>High</string>
-
         <key>OSType</key>
         <string>Mac OS X, Mac OS X Server</string>
-
         <key>OSVersion</key>
         <string>*</string>
-
         <key>patch_criteria</key>
         <array>
             <string>File@Exists@/Library/Internet Plug-Ins/Flash Player.plugin@True</string>
             <string>File@Version@/Library/Internet Plug-Ins/Flash Player.plugin@#version#;LT</string>
         </array>
-
         <key>patch_criteria_scripts</key>
         <false/>
-
         <key>pkg_preinstall</key>
         <false/>
-
         <key>pkg_postinstall</key>
         <true/>
-
         <key>pkg_env_var</key>
         <string></string>
-
         <key>patch_install_weight</key>
         <string>30</string>
-
         <key>patch_reboot</key>
         <string>No</string>
     </dict>
-
     <key>MinimumVersion</key>
     <string>0.2.0</string>
-
     <key>ParentRecipe</key>
     <string>com.github.autopkg.pkg.FlashPlayerExtractPackage</string>
-
     <key>Process</key>
     <array>
         <dict>
-            <key>Arguments</key>
-            <dict>
-            </dict>
             <key>Processor</key>
-            <string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+            <string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
         </dict>
     </array>
 </dict>

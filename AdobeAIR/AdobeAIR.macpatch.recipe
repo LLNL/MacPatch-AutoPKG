@@ -4,74 +4,52 @@
 <dict>
     <key>Description</key>
     <string>Uploads Adobe AIR into MacPatch</string>
-
     <key>Identifier</key>
     <string>com.github.smsg-mac-dev.macpatch.AdobeAIR</string>
-
     <key>Input</key>
     <dict>
         <key>patch_name</key>
-        <string>Adobe AIR</string>
-
+        <string>Adobe AIR #version#</string>
         <key>patch_id</key>
         <string>com.adobe.air</string>
-
         <key>description</key>
         <string>Adobe AIR</string>
-
         <key>description_url</key>
         <string>http://helpx.adobe.com/air.html</string>
-
         <key>patch_vendor</key>
         <string>Adobe</string>
-
         <key>patch_severity</key>
         <string>High</string>
-
         <key>OSType</key>
         <string>Mac OS X, Mac OS X Server</string>
-
         <key>OSVersion</key>
         <string>*</string>
-
         <key>patch_criteria</key>
         <array>
             <string>File@Exists@/Library/Frameworks/Adobe AIR.framework@True</string>
         </array>
-
         <key>patch_criteria_scripts</key>
         <true/>
-
         <key>pkg_preinstall</key>
         <false/>
-
         <key>pkg_postinstall</key>
         <false/>
-
         <key>pkg_env_var</key>
         <string></string>
-
         <key>patch_install_weight</key>
         <string>30</string>
-
         <key>patch_reboot</key>
         <string>No</string>
     </dict>
-
     <key>MinimumVersion</key>
     <string>0.2.0</string>
-
     <key>ParentRecipe</key>
     <string>com.github.autopkg.pkg.AdobeAIR</string>
-
     <key>Process</key>
     <array>
         <dict>
-            <key>Arguments</key>
-            <dict>
-            </dict>
             <key>Processor</key>
-            <string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+            <string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
         </dict>
     </array>
 </dict>

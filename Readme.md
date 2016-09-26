@@ -305,7 +305,7 @@ Below is a sample Firefox recipe with the needed inputs to upload to a MacPatch 
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+			<string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
 		</dict>
 	</array>
 </dict>

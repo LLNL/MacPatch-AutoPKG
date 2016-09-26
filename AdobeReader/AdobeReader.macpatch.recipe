@@ -4,67 +4,48 @@
 <dict>
     <key>Description</key>
     <string>Uploads Adobe Reader updates into MacPatch</string>
-
     <key>Identifier</key>
     <string>com.github.smsg-mac-dev.macpatch.adobeReader</string>
-
     <key>Input</key>
     <dict>
         <key>patch_name</key>
-        <string>Adobe Reader</string>
-
+        <string>Adobe Reader #version#</string>
         <key>patch_id</key>
         <string>com.adobe.ReaderXI</string>
-
         <key>description</key>
         <string>Adobe Reader XI</string>
-
         <key>description_url</key>
         <string>http://www.adobe.com/support</string>
-
         <key>patch_vendor</key>
         <string>Adobe</string>
-
         <key>patch_severity</key>
         <string>High</string>
-
         <key>OSType</key>
         <string>Mac OS X, Mac OS X Server</string>
-
         <key>OSVersion</key>
         <string>*</string>
-
         <key>patch_criteria</key>
         <array>
             <string>File@Exists@/Applications/Adobe Reader.app@True</string>
             <string>File@VERSION@/Applications/Adobe Reader.app@#version#;LT</string>
         </array>
-
         <key>patch_criteria_scripts</key>
         <false/>
-
         <key>pkg_preinstall</key>
         <true/>
-
         <key>pkg_postinstall</key>
         <true/>
-
         <key>pkg_env_var</key>
         <string></string>
-
         <key>patch_install_weight</key>
         <string>30</string>
-
         <key>patch_reboot</key>
         <string>No</string>
     </dict>
-
     <key>MinimumVersion</key>
     <string>0.2.0</string>
-
     <key>ParentRecipe</key>
     <string>com.github.autopkg.pkg.AdobeReader</string>
-
     <key>Process</key>
     <array>
         <dict>
@@ -78,7 +59,6 @@
                 <string>%RECIPE_CACHE_DIR%/downloads/UNPACK</string>
             </dict>
         </dict>
-
         <dict>
             <key>Processor</key>
             <string>PkgPayloadUnpacker</string>
@@ -90,7 +70,6 @@
                 <string>%RECIPE_CACHE_DIR%/downloads/PAYLOAD</string>
             </dict>
         </dict>
-
         <dict>
             <key>Processor</key>
             <string>Versioner</string>
@@ -100,13 +79,9 @@
                 <string>%RECIPE_CACHE_DIR%/downloads/PAYLOAD/Adobe Reader.app/Contents/Info.plist</string>
             </dict>
         </dict>
-
         <dict>
-            <key>Arguments</key>
-            <dict>
-            </dict>
             <key>Processor</key>
-            <string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+            <string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
         </dict>
     </array>
 </dict>

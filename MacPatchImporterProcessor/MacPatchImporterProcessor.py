@@ -1,12 +1,7 @@
 #!/usr/bin/env python
-#
-
+"""MacPatchImporterProcessor."""
 
 import os
-import subprocess
-import FoundationPlist
-import shutil
-
 import requests
 import json
 import zipfile
@@ -20,7 +15,7 @@ __all__ = ["MacPatchImporterProcessor"]
 
 
 class MPWebService(object):
-    """Post patch to MacPatch server"""
+    """Post patch to MacPatch server."""
 
     get_auth_method_param = {'method': 'GetAuthToken'}
     post_data_method_param = {'method': 'postAutoPKGPatch'}
@@ -77,7 +72,7 @@ class MPWebService(object):
     def post_pkg(self, pkg_path):
         url = self._server_name + self.post_method
 
-        zip_path = os.path.join(pkg_path + '.zip')
+        zip_path = os.path.join(pkg_path.replace(' ', '_') + '.zip')
         pkg_filename = os.path.basename(pkg_path)
 
         with zipfile.ZipFile(zip_path, mode='w') as zip_file:
@@ -191,6 +186,7 @@ class MPWebService3(object):
 
 class MacPatchImporterProcessor(Processor):
     """Imports a pkg into MacPatch."""
+
     input_variables = {
         "MP_USER": {
             "required": True,
@@ -234,7 +230,7 @@ class MacPatchImporterProcessor(Processor):
         },
         "description_url": {
             "required": True,
-            "description": "URL to more info about the patch/software.",        
+            "description": "URL to more info about the patch/software.",
         },
         "patch_severity": {
             "required": True,
@@ -289,6 +285,7 @@ class MacPatchImporterProcessor(Processor):
     description = __doc__
 
     def main(self):
+        """Upload patches into MacPatch."""
         if not self.env['download_changed']:
             raise ProcessorError('No new update was downloaded, nothing to upload.')
 
@@ -304,10 +301,10 @@ class MacPatchImporterProcessor(Processor):
         user_params = {
             'authUser': self.env['MP_USER'],
             'authPass': self.env['MP_PASSWORD'],
-            }
+        }
 
         payload = {
-            'patch_name': self.env['patch_name'],
+            'patch_name': self.env['patch_name'].replace('#version#', self.env['version']),
             'description': self.env['description'],
             'description_url': self.env['description_url'],
             'patch_vendor': self.env['patch_vendor'],
@@ -319,7 +316,7 @@ class MacPatchImporterProcessor(Processor):
             'patch_reboot': self.env['patch_reboot'],
             'bundle_id': self.env['patch_id'],
             'patch_ver': self.env['version'],
-            }
+        }
 
         if self.env['pkg_preinstall']:
             pkg_preinstall_path = os.path.join(self.env['RECIPE_DIR'], 'scripts/preinstall.script')
@@ -360,9 +357,8 @@ class MacPatchImporterProcessor(Processor):
                 self.env['patch_uploaded'] = mp_webservice.post_pkg(self.env['pkg_path'])
         except Exception, e:
             raise ProcessorError('Something went wrong while communicating with the web service.\n{0}'.format(e))
-        
-        self.env['puuid'] = mp_webservice.patch_id()
 
+        self.env['puuid'] = mp_webservice.patch_id()
 
         # clear any pre-exising summary result
         if 'macpatch_importer_summary_result' in self.env:

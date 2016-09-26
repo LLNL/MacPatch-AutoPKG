@@ -4,78 +4,55 @@
 <dict>
     <key>Description</key>
     <string>Uploads Firefox ESR into MacPatch</string>
-
     <key>Identifier</key>
     <string>com.github.smsg-mac-dev.macpatch.firefoxESR</string>
-
     <key>Input</key>
     <dict>
         <key>patch_name</key>
-        <string>Firefox ESR</string>
-
+        <string>Firefox ESR #version#</string>
         <key>patch_id</key>
         <string>org.mozilla.firefoxESR</string>
-
         <key>description</key>
         <string>Firefox ESR web browser</string>
-
         <key>description_url</key>
         <string>https://www.mozilla.org/en-US/firefox/organizations/all</string>
-
         <key>patch_vendor</key>
         <string>Mozilla</string>
-
         <key>patch_severity</key>
         <string>High</string>
-
         <key>OSType</key>
         <string>Mac OS X, Mac OS X Server</string>
-
         <key>OSVersion</key>
         <string>*</string>
-
         <key>patch_criteria</key>
         <array>
             <string>File@Exists@/Applications/Firefox.app@True</string>
             <string>File@VERSION@/Applications/Firefox.app@#version#;LT</string>
         </array>
-
         <key>patch_criteria_scripts</key>
         <false/>
-
         <key>pkg_preinstall</key>
         <true/>
-
         <key>pkg_postinstall</key>
         <false/>
-
         <key>pkg_env_var</key>
         <string></string>
-
         <key>patch_install_weight</key>
         <string>30</string>
-
         <key>patch_reboot</key>
         <string>No</string>
-
         <key>RELEASE</key>
         <string>latest-esr</string>
     </dict>
-
     <key>MinimumVersion</key>
     <string>0.2.0</string>
-
     <key>ParentRecipe</key>
     <string>com.github.autopkg.pkg.Firefox_EN</string>
-
     <key>Process</key>
     <array>
         <dict>
-            <key>Arguments</key>
-            <dict>
-            </dict>
             <key>Processor</key>
-            <string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+            <string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
         </dict>
     </array>
 </dict>

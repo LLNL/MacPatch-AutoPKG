@@ -4,72 +4,50 @@
 <dict>
     <key>Description</key>
     <string>Uploads Oracle Java 8 JDK into MacPatch</string>
-
     <key>Identifier</key>
     <string>com.github.smsg-mac-dev.macpatch.oracleJava8JDK</string>
-
     <key>Input</key>
     <dict>
         <key>patch_name</key>
-        <string>Oracle Java 8 JDK</string>
-
+        <string>Oracle Java 8 JDK #version#</string>
         <key>patch_id</key>
         <string>com.oracle.java.8</string>
-
         <key>description</key>
         <string>Oracle Java 8 JDK</string>
-
         <key>description_url</key>
         <string>http://www.oracle.com/technetwork/java/javase/downloads/index.html</string>
-
         <key>patch_vendor</key>
         <string>Oracle</string>
-
         <key>patch_severity</key>
         <string>High</string>
-
         <key>OSType</key>
         <string>Mac OS X, Mac OS X Server</string>
-
         <key>OSVersion</key>
         <string>*</string>
-
         <key>patch_criteria</key>
         <array/>
-
         <key>patch_criteria_scripts</key>
         <true/>
-
         <key>pkg_preinstall</key>
         <true/>
-
         <key>pkg_postinstall</key>
         <false/>
-
         <key>pkg_env_var</key>
         <string></string>
-
         <key>patch_install_weight</key>
         <string>30</string>
-
         <key>patch_reboot</key>
         <string>No</string>
     </dict>
-
     <key>MinimumVersion</key>
     <string>0.2.0</string>
-
     <key>ParentRecipe</key>
     <string>com.github.novaksam.pkg.OracleJava8JDK</string>
-
     <key>Process</key>
     <array>
         <dict>
-            <key>Arguments</key>
-            <dict>
-            </dict>
             <key>Processor</key>
-            <string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+            <string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
         </dict>
     </array>
 </dict>

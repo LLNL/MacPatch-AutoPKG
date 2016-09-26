@@ -3,19 +3,14 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Use this a shared recipe processor. Use it to upload packages to a MacPatch server.
-To use this processor, set the 'Processor' key in your recipe to 'gov.llnl.autopkg.recipes.MacPatchImporterProcessor/MacPatchImporterProcessor'</string>
-
-
+    <string>Use this as shared recipe processor. Use it to upload packages to a MacPatch server.
+To use this processor, set the 'Processor' key in your recipe to 'com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor'</string>
     <key>Identifier</key>
-    <string>com.github.smsg-mac-dev.MacPatchImporterProcessor</string>
-
+    <string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor</string>
     <key>Input</key>
     <dict/>
-    
     <key>MinimumVersion</key>
     <string>0.4.0</string>
-
     <key>Process</key>
     <dict/>
 </dict>

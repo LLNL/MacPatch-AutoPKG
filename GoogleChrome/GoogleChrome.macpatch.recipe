@@ -4,75 +4,53 @@
 <dict>
     <key>Description</key>
     <string>Uploads Google Chrome into MacPatch</string>
-
     <key>Identifier</key>
     <string>com.github.smsg-mac-dev.macpatch.googleChrome</string>
-
     <key>Input</key>
     <dict>
         <key>patch_name</key>
-        <string>Google Chrome</string>
-
+        <string>Google Chrome #version#</string>
         <key>patch_id</key>
         <string>com.google.Chrome</string>
-
         <key>description</key>
         <string>Google Chrome web browser</string>
-
         <key>description_url</key>
         <string>http://google.com/chrome</string>
-
         <key>patch_vendor</key>
         <string>Google</string>
-
         <key>patch_severity</key>
         <string>High</string>
-
         <key>OSType</key>
         <string>Mac OS X, Mac OS X Server</string>
-
         <key>OSVersion</key>
         <string>*</string>
-
         <key>patch_criteria</key>
         <array>
             <string>File@EXISTS@/Applications/Google Chrome.app@True</string>
             <string>File@VERSION@/Applications/Google Chrome.app@#version#;LT</string>
         </array>
-
         <key>patch_criteria_scripts</key>
         <true/>
-
         <key>pkg_preinstall</key>
         <true/>
-
         <key>pkg_postinstall</key>
         <true/>
-
         <key>pkg_env_var</key>
         <string></string>
-
         <key>patch_install_weight</key>
         <string>30</string>
-
         <key>patch_reboot</key>
         <string>No</string>
     </dict>
-
     <key>MinimumVersion</key>
     <string>0.2.0</string>
-
     <key>ParentRecipe</key>
     <string>com.github.autopkg.pkg.googlechrome</string>
-
     <key>Process</key>
     <array>
         <dict>
-            <key>Arguments</key>
-            <dict>
-            </dict>
             <key>Processor</key>
-            <string>com.github.smsg-mac-dev.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+            <string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
         </dict>
     </array>
 </dict>
