@@ -1,0 +1,3 @@
+#!/bin/bash
+# Run Initialize VMware Fusion.tool, runs needed steps for first launch.
+"/Applications/VMware Fusion.app/Contents/Library/Initialize VMware Fusion.tool" set

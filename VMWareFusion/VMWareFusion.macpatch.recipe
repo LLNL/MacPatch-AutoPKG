@@ -35,7 +35,7 @@
         <key>pkg_preinstall</key>
         <false/>
         <key>pkg_postinstall</key>
-        <false/>
+        <true/>
         <key>pkg_env_var</key>
         <string></string>
         <key>patch_install_weight</key>
