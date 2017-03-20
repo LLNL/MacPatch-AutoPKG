@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Uploads Virtualbox into MacPatch</string>
+    <key>Identifier</key>
+    <string>com.github.smsg-mac-dev.macpatch.virtualbox</string>
+    <key>Input</key>
+    <dict>
+        <key>patch_name</key>
+        <string>VirtualBox #version#</string>
+        <key>patch_id</key>
+        <string>org.virtualxox</string>
+        <key>description</key>
+        <string>VirtualBox</string>
+        <key>description_url</key>
+        <string>https://www.virtualbox.org</string>
+        <key>patch_vendor</key>
+        <string>Oracle</string>
+        <key>patch_severity</key>
+        <string>High</string>
+        <key>OSType</key>
+        <string>Mac OS X, Mac OS X Server</string>
+        <key>OSVersion</key>
+        <string>*</string>
+        <key>patch_criteria</key>
+        <array>
+            <string>File@EXISTS@/Applications/Utilities/VirtualBox.app@True</string>
+            <string>File@VERSION@/Applications/Utilities/VirtualBox.app@#version#;LT</string>
+        </array>
+        <key>patch_criteria_scripts</key>
+        <false/>
+        <key>pkg_preinstall</key>
+        <false/>
+        <key>pkg_postinstall</key>
+        <true/>
+        <key>pkg_env_var</key>
+        <string></string>
+        <key>patch_install_weight</key>
+        <string>30</string>
+        <key>patch_reboot</key>
+        <string>No</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.sheagcraig.download.VirtualBox</string>
+    <key>Process</key>
+    <array>
+
+        <dict>
+            <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/UNPACK</string>
+                <key>flat_pkg_path</key>
+                <string>%pathname%/*.pkg</string>
+            </dict>
+            <key>Comment</key>
+            <string>Extract PKG from DMG, put it in downloads/UNPACK</string>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pattern</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/UNPACK/VirtualBox.pkg</string>
+            </dict>
+            <key>Comment</key>
+            <string>Find the main pkg</string>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/PAYLOAD</string>
+                <key>pkg_payload_path</key>
+                <string>%found_filename%/Payload</string>
+            </dict>
+            <key>Comment</key>
+            <string>Copy the payload from the found pkg</string>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_plist_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/PAYLOAD/VirtualBox.app/Contents/Info.plist</string>
+                <key>plist_version_key</key>
+                <string>CFBundleVersion</string>
+            </dict>
+            <key>Comment</key>
+            <string>Ready the version string from the Info.plist in the payload</string>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>PkgCopier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+                <key>source_pkg</key>
+                <string>%pathname%/*.pkg</string>
+            </dict>
+            <key>Comment</key>
+            <string>Copy the pkg from the dmg, append the version number to it.</string>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%RECIPE_CACHE_DIR%/downloads/UNPACK</string>
+                    <string>%RECIPE_CACHE_DIR%/downloads/PAYLOAD</string>
+                </array>
+            </dict>
+            <key>Comment</key>
+            <string>Gotta clean up working directories</string>
+        </dict>
+
+        <dict>
+            <key>Arguments</key>
+            <dict>
+            </dict>
+            <key>Processor</key>
+            <string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+        </dict>
+    </array>
+</dict>
+</plist>
