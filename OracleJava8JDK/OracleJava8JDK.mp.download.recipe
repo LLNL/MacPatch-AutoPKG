@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest Java 8 JDK from Oracle and Extracts the Package</string>
+    <key>Identifier</key>
+    <string>com.github.smsg-mac-dev.macpatch.download.oracleJava8JDK</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>OraJava8JDK</string>
+        <key>SEARCH_URL</key>
+        <string>http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;url&gt;http://download.oracle.com/otn-pub/java/jdk/.*?/jdk-8u[0-9]+-macosx-x64.dmg)</string>
+        <key>ORACLE_LICENSE_COOKIE</key>
+        <string>oraclelicense=accept-securebackup-cookie</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.0</string>
+    <key>Process</key>
+    <array>
+            <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%</string>
+                <key>re_pattern</key>
+                <string>%SEARCH_PATTERN%</string>
+            </dict>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%url%</string>
+                <key>request_headers</key>
+                <dict>
+                        <key>Cookie</key>
+                        <string>%ORACLE_LICENSE_COOKIE%</string>
+                </dict>
+                <key>filename</key>
+                <string>%NAME%.dmg</string>
+            </dict>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/UNPACK</string>
+                <key>flat_pkg_path</key>
+                <string>%pathname%/*.pkg</string>
+            </dict>
+            <key>Comment</key>
+            <string>Extract PKG from DMG, put it in downloads/UNPACK</string>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pattern</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/UNPACK/jdk*.pkg</string>
+            </dict>
+            <key>Comment</key>
+            <string>Find the main jdk pkg</string>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/PAYLOAD</string>
+                <key>pkg_payload_path</key>
+                <string>%found_filename%/Payload</string>
+            </dict>
+            <key>Comment</key>
+            <string>Copy the payload from the found pkg</string>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_plist_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/PAYLOAD/Contents/Info.plist</string>
+                <key>plist_version_key</key>
+                <string>CFBundleVersion</string>
+            </dict>
+            <key>Comment</key>
+            <string>Ready the version string from the Info.plist in the payload</string>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>PkgCopier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+                <key>source_pkg</key>
+                <string>%pathname%/*.pkg</string>
+            </dict>
+            <key>Comment</key>
+            <string>Copy the pkg from the dmg, append the version number to it.</string>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%RECIPE_CACHE_DIR%/downloads/UNPACK</string>
+                    <string>%RECIPE_CACHE_DIR%/downloads/PAYLOAD</string>
+                </array>
+            </dict>
+            <key>Comment</key>
+            <string>Gotta clean up working directories</string>
+        </dict>
+        
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%pathname%/JDK 8 Update *.pkg</string>
+                <key>expected_authority_names</key>
+                <array>
+                    <string>Developer ID Installer: Oracle America, Inc.</string>
+                    <string>Developer ID Certification Authority</string>
+                    <string>Apple Root CA</string>
+                </array>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>

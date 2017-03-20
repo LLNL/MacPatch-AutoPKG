@@ -42,7 +42,7 @@
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.novaksam.pkg.OracleJava8JDK</string>
+    <string>com.github.smsg-mac-dev.macpatch.download.oracleJava8JDK</string>
     <key>Process</key>
     <array>
         <dict>
