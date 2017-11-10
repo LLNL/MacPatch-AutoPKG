@@ -1,0 +1,5 @@
+#!/bin/sh
+# Disables auto updates
+
+/usr/libexec/PlistBuddy -c "Delete DC:FeatureLockdown:bUpdater" "/Library/Preferences/com.adobe.Reader.plist"
+/usr/libexec/PlistBuddy -c "Add DC:FeatureLockdown:bUpdater bool false" "/Library/Preferences/com.adobe.Reader.plist"

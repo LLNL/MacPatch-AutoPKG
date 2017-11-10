@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Uploads Adobe Acrobat Reader DC updates into MacPatch</string>
+    <key>Identifier</key>
+    <string>com.github.smsg-mac-dev.macpatch.adobeReaderDC</string>
+    <key>Input</key>
+    <dict>
+        <key>patch_name</key>
+        <string>Adobe Acrobat Reader DC #version#</string>
+        <key>patch_id</key>
+        <string>com.adobe.reader-dc</string>
+        <key>description</key>
+        <string>Adobe Acrobat Reader DC</string>
+        <key>description_url</key>
+        <string>http://www.adobe.com/support</string>
+        <key>patch_vendor</key>
+        <string>Adobe</string>
+        <key>patch_severity</key>
+        <string>High</string>
+        <key>OSType</key>
+        <string>Mac OS X, Mac OS X Server</string>
+        <key>OSVersion</key>
+        <string>*</string>
+        <key>patch_criteria</key>
+        <array>
+            <string>File@Exists@/Applications/Adobe Acrobat Reader DC.app@True</string>
+            <string>File@VERSION@/Applications/Adobe Acrobat Reader DC.app@#version#;LT</string>
+        </array>
+        <key>patch_criteria_scripts</key>
+        <false/>
+        <key>pkg_preinstall</key>
+        <false/>
+        <key>pkg_postinstall</key>
+        <true/>
+        <key>pkg_env_var</key>
+        <string></string>
+        <key>patch_install_weight</key>
+        <string>30</string>
+        <key>patch_reboot</key>
+        <string>No</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.autopkg.pkg.AdobeReaderDC</string>
+    <key>Process</key>
+    <array>
+        <!-- <dict>
+            <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>flat_pkg_path</key>
+                <string>%pkg_path%</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/UNPACK</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/UNPACK/application.pkg/Payload</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/PAYLOAD</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_plist_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/PAYLOAD/Adobe Reader.app/Contents/Info.plist</string>
+            </dict>
+        </dict> -->
+        <dict>
+            <key>Processor</key>
+            <string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+        </dict>
+    </array>
+</dict>
+</plist>
