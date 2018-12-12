@@ -27,7 +27,7 @@
         <key>patch_criteria</key>
         <array>
             <string>File@EXISTS@/Applications/Firefox.app@True</string>
-            <string>File@VERSION@/Applications/Firefox.app@53.0.0;GTE</string>
+            <string>File@VERSION@/Applications/Firefox.app@61.0.0;GTE</string>
             <string>File@VERSION@/Applications/Firefox.app@#version#;LT</string>
         </array>
         <key>patch_criteria_scripts</key>
