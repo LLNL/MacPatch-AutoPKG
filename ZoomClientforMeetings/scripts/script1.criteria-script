@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# This function works with version numbers with up to 4 "."s and up to 4 digits in each
+# Example: 3.2000.3000.4000
+function version {
+	#the double "at sign" below is because MacPatch uses it as a delimiter
+	echo "$@@" | awk -F. '{ printf("%d%04d%04d%06d\n", $1,$2,$3,$4); }';
+}
+
+patch_version="#version#"
+
+for zoom_app in /Users/*"/Library/Application Support/zoom.us/zoom.us.app"; do
+  if [[ -d "$zoom_app" ]]; then
+    logger -s "Zoom found in user space, update is required."
+    exit 0
+  fi
+done
+
+if [[ -d /Applications/zoom.us.app ]]; then
+  logger -s "Found /Applications/zoom.us.app"
+  installed_version="$(/usr/bin/defaults read /Applications/zoom.us.app/Contents/Info.plist CFBundleShortVersionString)"
+  if [ $(version $installed_version) -lt $(version $patch_version) ]; then
+    logger -s "Zoom version is older, patch is needed"
+    exit 0
+  fi
+fi
+
+logger "Zoom update not required."
+exit 1

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+for zoom_app in /Users/*"/Library/Application Support/zoom.us/zoom.us.app"; do
+  if [[ -d "$zoom_app" ]]; then
+    logger -s "Removing $zoom_app"
+    rm -rf "$zoom_app"
+  fi
+done
+
+for zoom_plist in /Users/*"/Library/Preferences/us.zoom.xos.plist"; do
+  owner="$(stat -f%Su "$zoom_plist")"
+  sudo -u $owner /usr/bin/defaults write "$zoom_plist" installPath "/Applications/zoom.us.app"
+done

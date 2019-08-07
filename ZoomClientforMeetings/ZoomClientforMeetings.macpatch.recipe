@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Uploads Zoom Client for Meetings into MacPatch</string>
+
+    <key>Identifier</key>
+    <string>com.github.smsg-mac-dev.macpatch.ZoomClientforMeetings</string>
+
+    <key>Input</key>
+    <dict>
+        <key>patch_name</key>
+        <string>Zoom Client for Meetings #version#</string>
+
+        <key>patch_id</key>
+        <string>us.zoom.zoomclientformeetings</string>
+
+        <key>description</key>
+        <string>Zoom Client for Meetings</string>
+
+        <key>description_url</key>
+        <string>https://www.zoom.us/download</string>
+
+        <key>patch_vendor</key>
+        <string>Zoom</string>
+
+        <key>patch_severity</key>
+        <string>High</string>
+
+        <key>OSType</key>
+        <string>Mac OS X, Mac OS X Server</string>
+
+        <key>OSVersion</key>
+        <string>*</string>
+
+        <key>patch_criteria</key>
+        <array/>
+
+        <key>patch_criteria_scripts</key>
+        <true/>
+
+        <key>pkg_preinstall</key>
+        <true/>
+
+        <key>pkg_postinstall</key>
+        <false/>
+
+        <key>pkg_env_var</key>
+        <string></string>
+
+        <key>patch_install_weight</key>
+        <string>30</string>
+
+        <key>patch_reboot</key>
+        <string>No</string>
+    </dict>
+
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+
+    <key>ParentRecipe</key>
+    <string>com.github.smithjw.download.ZoomMeetings</string>
+
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+        </dict>
+    </array>
+</dict>
+</plist>
