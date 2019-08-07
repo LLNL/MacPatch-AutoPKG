@@ -17,7 +17,7 @@
         <string>com.realvnc.viewer</string>
 
         <key>description</key>
-        <string>RealVNC Viewer</string>
+        <string>RealVNC Viewer #version#</string>
 
         <key>description_url</key>
         <string>http://www.realvnc.com</string>
@@ -35,13 +35,10 @@
         <string>*</string>
 
         <key>patch_criteria</key>
-        <array>
-            <string>File@EXISTS@/Applications/VNC Viewer.app@True</string>
-            <string>File@VERSION@/Applications/VNC Viewer.app@#version#;LT</string>
-        </array>
+        <array/>
 
         <key>patch_criteria_scripts</key>
-        <false/>
+        <true/>
 
         <key>pkg_preinstall</key>
         <false/>
