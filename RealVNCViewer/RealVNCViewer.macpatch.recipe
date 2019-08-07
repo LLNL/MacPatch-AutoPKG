@@ -54,12 +54,6 @@
 
         <key>patch_reboot</key>
         <string>No</string>
-
-        <key>pkg_path</key>
-        <string>%RECIPE_CACHE_DIR%/foobar.pkg</string>
-
-        <key>dmg_path</key>
-        <string>%RECIPE_CACHE_DIR%/foobar.pkg</string>
     </dict>
 
     <key>MinimumVersion</key>
