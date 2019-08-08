@@ -157,7 +157,7 @@ class MPWebService3(object):
     def post_pkg(self, pkg_path):
         url = self._server + ":" + self._port + os.path.join(self.uri, 'upload', self._patch_id, self._token)
 
-        zip_path = os.path.join(pkg_path + '.zip')
+        zip_path = os.path.join(pkg_path.replace(' ', '-') + '.zip')
         pkg_filename = os.path.basename(pkg_path)
 
         with zipfile.ZipFile(zip_path, mode='w') as zip_file:
