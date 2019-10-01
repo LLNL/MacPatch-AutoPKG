@@ -1,0 +1,15 @@
+#!/bin/bash
+
+app="/Applications/Sourcetree.app"
+
+if [ -d "$app" ]; then
+	echo "Welcome $app, now trying to kill you!"
+	ps -ex | grep "$app" | grep -v grep | awk '{print $1}' | xargs kill -9
+	if [ -e "$app" ]; then
+		echo "Now Deleting $app"
+		rm -rf "$app"
+	fi
+else
+	echo "$app not found."
+	exit
+fi
