@@ -8,6 +8,8 @@
     <string>com.github.smsg-mac-dev.macpatch.firefox-esr</string>
     <key>Input</key>
     <dict>
+        <key>RELEASE</key>
+        <string>esr-latest</string>
         <key>patch_name</key>
         <string>Firefox ESR #version#</string>
         <key>patch_id</key>
@@ -51,11 +53,6 @@
         <dict>
             <key>Processor</key>
             <string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
-            <key>Arguments</key>
-            <dict>
-                <key>RELEASE</key>
-                <string>esr-latest</string>
-            </dict>
         </dict>
     </array>
 </dict>
