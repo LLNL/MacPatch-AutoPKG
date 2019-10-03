@@ -5,17 +5,17 @@
     <key>Description</key>
     <string>Uploads Firefox ESR into MacPatch</string>
     <key>Identifier</key>
-    <string>com.github.smsg-mac-dev.macpatch.firefoxESR</string>
+    <string>com.github.smsg-mac-dev.macpatch.firefox-esr</string>
     <key>Input</key>
     <dict>
         <key>patch_name</key>
         <string>Firefox ESR #version#</string>
         <key>patch_id</key>
-        <string>org.mozilla.firefoxESR</string>
+        <string>org.mozilla.firefox</string>
         <key>description</key>
         <string>Firefox ESR web browser</string>
         <key>description_url</key>
-        <string>https://www.mozilla.org/en-US/firefox/organizations/all</string>
+        <string>https://www.mozilla.org/en-US/firefox/organizations</string>
         <key>patch_vendor</key>
         <string>Mozilla</string>
         <key>patch_severity</key>
@@ -26,7 +26,7 @@
         <string>*</string>
         <key>patch_criteria</key>
         <array>
-            <string>File@Exists@/Applications/Firefox.app@True</string>
+            <string>File@EXISTS@/Applications/Firefox.app@True</string>
             <string>File@VERSION@/Applications/Firefox.app@#version#;LT</string>
         </array>
         <key>patch_criteria_scripts</key>
@@ -41,8 +41,6 @@
         <string>30</string>
         <key>patch_reboot</key>
         <string>No</string>
-        <key>RELEASE</key>
-        <string>latest-esr</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -53,6 +51,11 @@
         <dict>
             <key>Processor</key>
             <string>com.github.SMSG-MAC-DEV.MacPatch-AutoPKG.MacPatchImporterProcessor/MacPatchImporterProcessor</string>
+            <key>Arguments</key>
+            <dict>
+                <key>RELEASE</key>
+                <string>esr-latest</string>
+            </dict>
         </dict>
     </array>
 </dict>
