@@ -5,7 +5,7 @@ app_path="/Applications/Firefox.app"
 
 if [[ -e "$app_path" ]]; then
     # Kill app if running
-    proc_name="$(defaults read "${app_path}/Contents/Info.plist" CFBundleExecutable)"
+    proc_name="$(defaults read "$app_path/Contents/Info.plist" CFBundleExecutable)"
     if [ "$?" == "0" ]; then
         while (pkill "$proc_name"); do
             echo "Killed $app_path"
