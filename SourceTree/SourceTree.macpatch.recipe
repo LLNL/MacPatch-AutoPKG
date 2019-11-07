@@ -23,7 +23,7 @@
         <key>OSType</key>
         <string>Mac OS X, Mac OS X Server</string>
         <key>OSVersion</key>
-        <string>*</string>
+        <string>10.14.*</string>
         <key>patch_criteria</key>
         <array>
             <string>File@EXISTS@/Applications/SourceTree.app@True</string>
