@@ -287,7 +287,8 @@ class MacPatchImporterProcessor(Processor):
     def main(self):
         """Upload patches into MacPatch."""
         if not self.env['download_changed']:
-            raise ProcessorError('No new update was downloaded, nothing to upload.')
+            print 'No new update was downloaded, nothing to upload.'
+            return
 
         mp_server = self.env['MP_URL']
         if not mp_server.startswith(('https://', 'http://')):
