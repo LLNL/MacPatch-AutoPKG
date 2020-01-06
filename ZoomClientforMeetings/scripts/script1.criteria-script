@@ -18,7 +18,7 @@ done
 
 if [[ -d /Applications/zoom.us.app ]]; then
   logger -s "Found /Applications/zoom.us.app"
-  installed_version="$(/usr/bin/defaults read /Applications/zoom.us.app/Contents/Info.plist CFBundleShortVersionString)"
+  installed_version="$(/usr/bin/defaults read /Applications/zoom.us.app/Contents/Info.plist CFBundleVersion)"
   if [ $(version $installed_version) -lt $(version $patch_version) ]; then
     logger -s "Zoom version is older, patch is needed"
     exit 0
