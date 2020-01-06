@@ -4,7 +4,7 @@
 # Example: 3.2000.3000.4000
 function version {
 	#the double "at sign" below is because MacPatch uses it as a delimiter
-	echo "$@@" | awk -F. '{ printf("%d%04d%04d%06d\n", $1,$2,$3,$4); }';
+	echo "$@@" | awk -F. '{ printf("%d%04d%04d%06d", $1,$2,$3,$4); }';
 }
 
 patch_version="#version#"
