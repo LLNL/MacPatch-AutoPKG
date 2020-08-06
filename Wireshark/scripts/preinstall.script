@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+app_path="/Applications/Wireshark.app"
+
+if [[ -e "$app_path" ]]; then
+    # Kill app if running
+    proc_name="$(defaults read "$app_path/Contents/Info.plist" CFBundleExecutable)"
+    if [ "$?" == "0" ]; then
+        while (pkill "$proc_name"); do
+            echo "Killed $app_path"
+        done
+    fi
+	# echo "Now Deleting $app_path"
+	# rm -rf "$app_path"
+fi
