@@ -122,9 +122,8 @@ class MPWebService3(object):
     def auth(self, params):
         url = self._server + ":" + self._port + '/api/v1/auth/token'
 
-        headers = {'API-KEY': 'blerg', 'Accept-Encoding': 'UTF-8', 'Content-Type': 'application/json'}
-        resp = requests.get(url, data=json.dumps(params), verify=self._verify, timeout=self.timeout, headers=headers)
-
+        headers = {'API-KEY': 'blerg', 'Accept-Encoding': 'UTF-8', 'Content-Type': 'application/json', 'X-AGENT-ID': 'MacPatch', 'X-AGENT-VER': '1'}
+        resp = requests.get(url, data=json.dumps(params), verify=self._verify, timeout=self.timeout, headers=self._
         resp.raise_for_status()
         errorno = int(resp.json()['errorno'])
         errormsg = resp.json()['errormsg']
@@ -140,7 +139,7 @@ class MPWebService3(object):
         url = self._server + ":" + self._port + os.path.join(self.uri, self._token)
         params = json.dumps({'autoPKGData': patch_data})
 
-        headers = {'API-KEY': 'blerg', 'Accept-Encoding': 'UTF-8', 'Content-Type': 'application/json'}
+        headers = {'API-KEY': 'blerg', 'Accept-Encoding': 'UTF-8', 'Content-Type': 'application/json', 'X-AGENT-ID': 'MacPatch', 'X-AGENT-VER': '1'}
         resp = requests.post(url, data=params, verify=self._verify, timeout=self.timeout, headers=headers)
 
         resp.raise_for_status()
@@ -164,7 +163,8 @@ class MPWebService3(object):
             zip_file.write(pkg_path, pkg_filename, zipfile.ZIP_DEFLATED)
 
         pkg_file = {'autoPKG': open(zip_path, 'rb')}
-        resp = requests.post(url, data=None, files=pkg_file, verify=self._verify, timeout=self.timeout)
+        headers = {'X-AGENT-ID': 'MacPatch', 'X-AGENT-VER': '1'}
+        resp = requests.post(url, data=None, files=pkg_file, verify=self._verify, timeout=self.timeout, headers=headers)
 
         resp.raise_for_status()
         errorno = int(resp.json()['errorno'])
