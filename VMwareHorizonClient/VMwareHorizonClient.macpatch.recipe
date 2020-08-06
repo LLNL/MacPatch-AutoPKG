@@ -58,6 +58,7 @@
         <key>patch_reboot</key>
         <string>No</string>
 
+        <key>curl_opts</key>
         <array>
             <string>-0</string>
         </array>
