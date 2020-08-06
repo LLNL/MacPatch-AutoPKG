@@ -7,6 +7,7 @@ import json
 import zipfile
 import glob
 import base64
+import subprocess
 
 from autopkglib import Processor, ProcessorError
 
@@ -106,7 +107,7 @@ class MPWebService3(object):
     uri = "/api/v1/autopkg"
     timeout = 60
 
-    def __init__(self, server_name, server_port, params, verify=True):
+    def __init__(self, server_name, server_port, params, signing_cert=None, verify=True):
         super(MPWebService3, self).__init__()
 
         print "Run MPWebServices 3.0"
@@ -116,7 +117,7 @@ class MPWebService3(object):
         self._user = params['authUser']
         self._token = None
         self._patch_id = None
-
+        self._signing_cert = None
         self.auth(params)
 
     def auth(self, params):
@@ -155,6 +156,16 @@ class MPWebService3(object):
 
     def post_pkg(self, pkg_path):
         url = self._server + ":" + self._port + os.path.join(self.uri, 'upload', self._patch_id, self._token)
+
+        if self._signing_cert:
+            # rename unsigned package so that we can slot the signed package into place
+            pkg_dir = os.path.dirname(pkg_path)
+            pkg_base_name = os.path.basename(pkg_path)
+            (pkg_name_no_extension, pkg_extension) = os.path.splitext(pkg_base_name)
+            unsigned_pkg_path = os.path.join(pkg_dir, pkg_name_no_extension + "-unsigned" + pkg_extension)
+            os.rename(pkg_path, unsigned_pkg_path)
+            cmd_list = ["/usr/bin/productsign", "--sign", self._signing_cert, unsigned_pkg_path, pkg_path]
+            subprocess.call(cmd_list)
 
         zip_path = os.path.join(pkg_path.replace(' ', '-') + '.zip')
         pkg_filename = os.path.basename(pkg_path)
@@ -268,6 +279,10 @@ class MacPatchImporterProcessor(Processor):
             "required": True,
             "description": "Does the patch require a reboot. 'Yes', 'No'",
         },
+        "signing_cert": {
+            "required": False,
+            "description": "Signing cert name if you want to sign the pkg, else leave this key out. 'Developer ID Installer&#58; Joe Dev &#40;ABCDEFGHIJ&#41;'",
+        },
     }
 
     output_variables = {
@@ -348,7 +363,7 @@ class MacPatchImporterProcessor(Processor):
         try:
             if self.env['MP_USE_REST']:
                 print "Use New Services"
-                mp_webservice = MPWebService3(mp_server, mp_port, user_params, verify=self.env['MP_SSL_VERIFY'])
+                mp_webservice = MPWebService3(mp_server, mp_port, user_params, signing_cert=self.env['signing_cert'], verify=self.env['MP_SSL_VERIFY'])
                 mp_webservice.post_data(payload)
                 self.env['patch_uploaded'] = mp_webservice.post_pkg(self.env['pkg_path'])
             else:
