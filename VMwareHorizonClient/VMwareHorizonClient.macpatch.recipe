@@ -57,6 +57,10 @@
 
         <key>patch_reboot</key>
         <string>No</string>
+
+        <array>
+            <string>-0</string>
+        </array>
     </dict>
 
     <key>MinimumVersion</key>
