@@ -123,7 +123,7 @@ class MPWebService3(object):
         url = self._server + ":" + self._port + '/api/v1/auth/token'
 
         headers = {'API-KEY': 'blerg', 'Accept-Encoding': 'UTF-8', 'Content-Type': 'application/json', 'X-AGENT-ID': 'MacPatch', 'X-AGENT-VER': '1'}
-        resp = requests.get(url, data=json.dumps(params), verify=self._verify, timeout=self.timeout, headers=self._
+        resp = requests.get(url, data=json.dumps(params), verify=self._verify, timeout=self.timeout, headers=headers)
         resp.raise_for_status()
         errorno = int(resp.json()['errorno'])
         errormsg = resp.json()['errormsg']
